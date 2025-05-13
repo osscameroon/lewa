@@ -1,0 +1,22 @@
+name: CI docker
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build the image
+        run: |
+          docker build -t lewa .
+      - name: Test the image
+        run: |
+          set -ex
+          docker run -d lewa
+          sleep 5
+          for i in 5 4 3 2 1 0; do
+            if curl -sI http://127.0.0.1:8000 | grep 'HTTP/1.1 200 OK'; then
+              break;
+            fi
+
+            echo "Trying to connect to the lewa server..."
+          done

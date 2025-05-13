@@ -8,26 +8,21 @@ def index(request):
         "core/index.html",
     )
 
+
 def about(request):
     return render(
         request,
         "core/about.html",
     )
 
+
 def typing(request):
-    return render(
-        request,
-        "core/typing.html"
-    )
+    return render(request, "core/typing.html")
+
 
 def pronunciation(request):
-    return render(
-        request,
-        "core/pronunciation.html"
-    )
+    return render(request, "core/pronunciation.html")
+
 
 def languages(request):
-    return render(
-        request,
-        "core/languages.html"
-    )
+    return render(request, "core/languages.html")
