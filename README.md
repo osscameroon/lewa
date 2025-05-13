@@ -13,3 +13,110 @@ While Input Method Engines (IMEs) exist to facilitate typing in these scripts, t
 Through this project, we aim to make African writing systems more accessible by helping users learn not only the scripts themselves, but also their alphabets and pronunciations.
 
 _NB: This project derived from [osscameroon/project-ideas#53](https://github.com/osscameroon/project-ideas/issues/53)._
+=======
+
+## Table of Contents
+* **[Installation](#installation)**
+  * [uv](#uv)
+  * [Pip](#pip)
+  * [Docker](#docker)
+* [Contributing](#contributing)
+* [Support](#support)
+* [License](#license)
+
+## 📖 Installation
+
+Lewa can be installed via Pip or Docker. To start, clone the repo to your local computer and change into the proper directory.
+
+### 🧰 Prerequisites 
+
+- **Python 3.11+** ([Download](https://python.org))  
+- **Docker** (Optional) ([Install Docker](https://docs.docker.com/get-started/get-docker/))  
+- **UV** (Optional, for fast Python package management) ([Install UV](https://docs.astral.sh/uv/getting-started/installation/))  
+
+### Install Dependencies
+
+- With Pip:
+
+```sh
+pip install .
+```
+
+- With uv:
+
+```sh
+uv sync
+```
+
+- With Docker: Not needed
+
+### Setup
+
+- With Python:
+
+```sh
+python lewa/manage.py migrate
+```
+
+- With uv:
+
+```sh
+uv run lewa/manage.py migrate
+```
+ 
+- With Docker: Not needed 
+
+### Run the App
+
+- With Python:
+
+```sh
+python lewa/manage.py runserver
+```
+
+- With uv:
+
+```sh
+uv run lewa/manage.py runserver
+```
+
+- With Docker: 
+
+```sh
+docker compose up -d
+```  
+
+### Load the dummy data
+
+- With Python:
+
+```sh
+python lewa/manage.py shell -c "import core.dummy_data"
+```
+  
+- With uv:
+
+```sh
+uv run lewa/manage.py shell -c "import core.dummy_data"
+```
+
+- With Docker:
+
+```sh
+docker compose exec lewa ./entrypoint.sh shell -c \"import core.dummy_data\"
+```
+
+**Access the webapp**  
+  Open your browser at: [http://127.0.0.1:8000](http://127.0.0.1:8000) or [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin) for the admin
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome! See [CONTRIBUTING.md](https://github.com/wsvincent/lithium/blob/master/CONTRIBUTING.md).
+
+## ⭐️ Support
+
+Give a ⭐️  if this project helped you!
+
+## License
+
+All the code in this repository is released under the Mozilla Public License v2.0, for more information take a look at the [LICENSE](LICENSE) file.

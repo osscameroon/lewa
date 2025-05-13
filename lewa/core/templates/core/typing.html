@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block content %}
+    <section class="section">
+        <div class="container">
+            <!-- Language & Lesson Info -->
+            <div class="level is-mobile">
+                <div class="level-left">
+                    <div class="level-item">
+                        <div class="tags has-addons">
+                            <span class="tag is-dark">Language</span>
+                            <span class="tag is-primary">Duala (GACL)</span>
+                        </div>
+                    </div>
+                    <div class="level-item">
+                        <div class="tags has-addons">
+                            <span class="tag is-dark">Lesson</span>
+                            <span class="tag is-info">3/12</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="level-right">
+                    <div class="level-item">
+                        <span class="timer">01:45</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Progress Bars -->
+            <div class="progress-container">
+                <div class="columns is-mobile is-vcentered">
+                    <div class="column is-2">
+                        <span class="has-text-weight-semibold">Accuracy</span>
+                    </div>
+                    <div class="column">
+                        <progress class="progress is-success" value="92" max="100">92%</progress>
+                    </div>
+                    <div class="column is-1 has-text-right">
+                        <span class="has-text-weight-semibold">92%</span>
+                    </div>
+                </div>
+                <div class="columns is-mobile is-vcentered">
+                    <div class="column is-2">
+                        <span class="has-text-weight-semibold">Speed</span>
+                    </div>
+                    <div class="column">
+                        <progress class="progress is-info" value="65" max="100">65%</progress>
+                    </div>
+                    <div class="column is-1 has-text-right">
+                        <span class="has-text-weight-semibold">18 WPM</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Lesson Text Display -->
+            <div class="box mt-5">
+                <div class="content is-large" id="lesson-text">
+                    <!-- Should be Dynamically filled by JavaScript -->
+                    M̀bɔ́lɔ́ ńtɔ́ŋ́ ǹdém bò lòndó è sómbólá è bòlóbò.
+                </div>
+            </div>
+            <!-- User Input -->
+            <div class="field">
+                <div class="control">
+                    <input id="user-input"
+                           class="input is-large"
+                           type="text"
+                           placeholder="Type the text above..."
+                           autocomplete="off"
+                           autocorrect="off"
+                           autocapitalize="off"
+                           spellcheck="false"
+                           autofocus>
+                </div>
+            </div>
+            <!-- Action Buttons -->
+            <div class="buttons is-centered mt-5">
+                <button id="hint-btn" class="button is-info is-light">
+                    <span class="icon">
+                        <i class="fas fa-volume-up"></i>
+                    </span>
+                    <span>Hear Pronunciation</span>
+                </button>
+                <button id="reset-btn" class="button is-danger is-light">
+                    <span class="icon">
+                        <i class="fas fa-redo"></i>
+                    </span>
+                    <span>Reset</span>
+                </button>
+                <button id="next-btn" class="button is-success" disabled>
+                    <span class="icon">
+                        <i class="fas fa-arrow-right"></i>
+                    </span>
+                    <span>Next Lesson</span>
+                </button>
+            </div>
+            <!-- Keyboard Placeholder -->
+            <div class="keyboard-placeholder box has-text-centered">
+                <p class="mb-3">
+                    <i class="fas fa-keyboard fa-3x"></i>
+                </p>
+                <p class="subtitle">Custom GACL Keyboard Will Appear Here</p>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

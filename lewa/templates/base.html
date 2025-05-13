@@ -1,0 +1,43 @@
+{% extends "_base.html" %}
+{% block body %}
+    <!-- Navigation Bar -->
+    <nav class="navbar is-dark">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="/">
+                    <span class="icon-text">
+                        <span class="icon">
+                            <i class="fas fa-book-open"></i>
+                        </span>
+                        <span class="has-text-weight-bold">Lewa</span>
+                    </span>
+                </a>
+            </div>
+            <div class="navbar-menu">
+                <div class="navbar-end">
+                    <a class="navbar-item" href="/">Home</a>
+                    <a class="navbar-item" href="{% url 'about' %}">About</a>
+                    <a class="navbar-item" href="{% url 'languages' %}">Languages</a>
+                    <a class="navbar-item" href="#">Login</a>
+                    <a class="navbar-item button is-primary" href="#">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    {% block content %}
+    {% endblock content %}
+    <!-- Footer -->
+    <footer class="footer has-background-dark has-text-white">
+        <div class="content has-text-centered">
+            <p>
+                <strong class="has-text-white">Lewa</strong> by <a href="https://osscameroon.com">osscameroon</a>.
+            </p>
+            <div class="mt-3">
+                <a href="https://x.com/osscameroon/" class="has-text-white mx-2"><i class="fab fa-twitter"></i></a>
+                <a href="https://linkedin/company/osscameroon/"
+                   class="has-text-white mx-2"><i class="fab fa-facebook"></i></a>
+                <a href="https://github.com/osscameroon" class="has-text-white mx-2"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+{% endblock body %}

@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% block content %}
+    <section class="hero is-african-theme-2 is-medium">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h1 class="title is-1 has-text-white">
+                    <i class="fas fa-volume-up"></i> Basics Pronunciation Guide
+                </h1>
+                <p class="subtitle has-text-light">Master the sounds of African languages with native audio examples</p>
+            </div>
+        </div>
+    </section>
+    <!-- Language Selection Tabs -->
+    <section class="section">
+        <div class="container">
+            <div class="tabs is-boxed is-centered">
+                <ul>
+                    <li class="is-active" data-tab="geez">
+                        <a>
+                            <span class="icon is-small"><i class="fas fa-font"></i></span>
+                            <span>Geez</span>
+                        </a>
+                    </li>
+                    <li data-tab="gacl">
+                        <a>
+                            <span class="icon is-small"><i class="fas fa-language"></i></span>
+                            <span>GACL</span>
+                        </a>
+                    </li>
+                    <li data-tab="shupamom">
+                        <a>
+                            <span class="icon is-small"><i class="fas fa-language"></i></span>
+                            <span>Shupamom</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Tab Contents -->
+            <div class="tab-content container is-active" id="geez">
+                <h2 class="title is-3 has-text-centered mb-5">Geez Alphabet Sounds</h2>
+                <div class="columns is-multiline is-centered">
+                    {% for i in "ሁለሉልመሚሞሠራሬሮሰሲሳቀበብተትቻነንኖኛአኮውዑዛዝየያገጠጣጽ" %}
+                        <div class="column is-2">
+                            <div class="card letter-card has-text-centered">
+                                <div class="card-content">
+                                    <p class="title is-1">{{ i }}</p>
+                                    <p class="subtitle is-6 is-italic">/{% lorem 1 w random %}/</p>
+                                    <p class="subtitle is-6">{% lorem 5 w random %}</p>
+                                    <button class="button play-button is-primary is-outlined is-small">
+                                        <span class="icon">
+                                            <i class="fas fa-play"></i>
+                                        </span>
+                                        <span>Play</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="tab-content container" id="gacl">
+            <h2 class="title is-3 has-text-centered mb-5">GACL Alphabet Sounds</h2>
+            <div class="box has-background-secondary mt-6">
+                <div class="content">
+                    <h3 class="title is-4">About GACL</h3>
+                    <p>
+                        The <strong>General Alphabet of Cameroonian Languages</strong> provides a unified writing system for over 200 Cameroonian languages.
+                        It includes special characters like <span class="tag is-medium">ɛ</span> <span class="tag is-medium">ŋ</span> <span class="tag is-medium">ɓ</span>
+                        to accurately represent African phonetics.
+                    </p>
+                </div>
+            </div>
+            <div class="columns is-multiline is-centered">
+                {% for i in "aɑeəɛioɔuʉŋ" %}
+                    <div class="column is-2">
+                        <div class="card letter-card has-text-centered">
+                            <div class="card-content">
+                                <p class="title is-1">{{ i }}</p>
+                                <p class="subtitle is-6 is-italic">/{% lorem 1 w random %}/</p>
+                                <p class="subtitle is-6">{% lorem 5 w random %}</p>
+                                <button class="button play-button is-primary is-outlined is-small">
+                                    <span class="icon">
+                                        <i class="fas fa-play"></i>
+                                    </span>
+                                    <span>Play</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="tab-content container" id="shupamom">
+            <h2 class="title is-3 has-text-centered mb-5">Shupamom Alphabet Sounds</h2>
+            <div class="columns is-multiline is-centered">
+                {% for i in "ꚠꚡꚢꚣꚤꚥꚦꚧꚨꚩꚪꚫꚬꚭꚮꚯꚰꚱꚲꚳꚴꚵꚶꚷꚸꚹꚺꚻꚼꚽꚾꚿꛀꛁꛂꛃꛄꛅꛆꛇꛈꛉꛊꛋꛌꛍꛎꛏꛐꛑꛒꛓꛔꛕꛖꛗꛘꛙꛚꛛꛜꛝꛞꛟꛠꛡꛢꛣꛤꛥꛦꛧꛨꛩꛪꛫꛬꛭꛮꛯ꛰꛱" %}
+                    <div class="column is-2">
+                        <div class="card letter-card has-text-centered">
+                            <div class="card-content">
+                                <p class="title is-1">{{ i }}</p>
+                                <p class="subtitle is-6 is-italic">/{% lorem 1 w random %}/</p>
+                                <p class="subtitle is-6">{% lorem 5 w random %}</p>
+                                <button class="button play-button is-primary is-outlined is-small">
+                                    <span class="icon">
+                                        <i class="fas fa-play"></i>
+                                    </span>
+                                    <span>Play</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
