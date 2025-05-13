@@ -1,0 +1,200 @@
+{% extends "base.html" %}
+{% block content %}
+    <!-- Hero Section -->
+    <section class="hero is-african-theme is-bold is-medium">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h1 class="title is-1 has-text-white">Learn African Writing Systems</h1>
+                <p class="subtitle is-4 has-text-light">
+                    Rediscover your heritage through <b>GACL</b>, <b>Ge'ez</b> and other writing systems.
+                </p>
+                <div class="buttons is-centered mt-5">
+                    <a href="{% url 'typing' %}" class="button is-primary is-large">
+                        <span class="icon">
+                            <i class="fas fa-keyboard"></i>
+                        </span>
+                        <span>Start Typing Practice</span>
+                    </a>
+                    <a href="{% url 'pronunciation' %}" class="button is-light is-large">
+                        <span class="icon">
+                            <i class="fas fa-volume-up"></i>
+                        </span>
+                        <span>Learn Pronunciation</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Cultural Importance Section -->
+    <section class="section">
+        <div class="container">
+            <div class="columns is-vcentered">
+                <div class="column is-6">
+                    <h2 class="title is-2">Why African Writing Systems Matter</h2>
+                    <p class="subtitle is-4">
+                        African languages hold more than letters, <span class="has-text-weight-bold has-text-primary">history, art, and identity</span>.
+                    </p>
+                    <p>
+                        The <strong>African writing systems</strong> empowers Africans to write their languages accurately,
+                        preserving sounds and meanings often lost in colonial scripts.
+                    </p>
+                </div>
+                <div class="column is-6">
+                    <div class="box p-6">
+                        <div class="columns is-multiline">
+                            <!-- Icon Boxes -->
+                            <div class="column is-6">
+                                <div class="icon-box has-text-centered p-4">
+                                    <span class="icon is-large has-text-primary">
+                                        <i class="fas fa-language fa-3x"></i>
+                                    </span>
+                                    <h3 class="title is-5 mt-3">Linguistic Pride</h3>
+                                    <p>Reclaim the way your language should be written.</p>
+                                </div>
+                            </div>
+                            <div class="column is-6">
+                                <div class="icon-box has-text-centered p-4">
+                                    <span class="icon is-large has-text-danger">
+                                        <i class="fas fa-history fa-3x"></i>
+                                    </span>
+                                    <h3 class="title is-5 mt-3">Cultural Legacy</h3>
+                                    <p>Pass down knowledge in its authentic form.</p>
+                                </div>
+                            </div>
+                            <div class="column is-6">
+                                <div class="icon-box has-text-centered p-4">
+                                    <span class="icon is-large has-text-success">
+                                        <i class="fas fa-users fa-3x"></i>
+                                    </span>
+                                    <h3 class="title is-5 mt-3">Community</h3>
+                                    <p>Connect with others learning African scripts.</p>
+                                </div>
+                            </div>
+                            <div class="column is-6">
+                                <div class="icon-box has-text-centered p-4">
+                                    <span class="icon is-large has-text-warning">
+                                        <i class="fas fa-keyboard fa-3x"></i>
+                                    </span>
+                                    <h3 class="title is-5 mt-3">Practical Skills</h3>
+                                    <p>Master typing and pronunciation.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Features Section -->
+    <section class="section has-background-light">
+        <div class="container">
+            <h2 class="title is-2 has-text-centered has-text-dark mb-6">How You'll Learn</h2>
+            <div class="columns is-multiline">
+                <!-- Feature 1 -->
+                <div class="column is-4">
+                    <div class="card">
+                        <div class="card-content has-text-centered">
+                            <span class="icon is-large has-text-info">
+                                <i class="fas fa-headphones fa-3x"></i>
+                            </span>
+                            <h3 class="title is-4 mt-4">Pronunciation Guides</h3>
+                            <p>Audio examples from native speakers to perfect your accent.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Feature 2 -->
+                <div class="column is-4">
+                    <div class="card">
+                        <div class="card-content has-text-centered">
+                            <span class="icon is-large has-text-success">
+                                <i class="fas fa-keyboard fa-3x"></i>
+                            </span>
+                            <h3 class="title is-4 mt-4">Typing Practice</h3>
+                            <p>Interactive exercises to master writing systems.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Feature 3 -->
+                <div class="column is-4">
+                    <div class="card">
+                        <div class="card-content has-text-centered">
+                            <span class="icon is-large has-text-warning">
+                                <i class="fas fa-trophy fa-3x"></i>
+                            </span>
+                            <h3 class="title is-4 mt-4">Competitions</h3>
+                            <p>Compete in typing speed and pronunciation challenges.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Language Selection -->
+    <section class="section">
+        <div class="container">
+            <h2 class="title is-2 has-text-centered is-underline">Choose a Language</h2>
+            <div class="columns is-multiline is-centered mt-6">
+                <!-- Language Card 1 -->
+                <div class="column is-3">
+                    <div class="card language-card">
+                        <div class="card-content has-text-centered">
+                            <span class="icon is-large">
+                                <i class="fas fa-language fa-3x"></i>
+                            </span>
+                            <p class="title is-4 mt-3">Duala</p>
+                            <p class="subtitle is-6">Cameroon</p>
+                            <button class="button is-primary is-outlined">Select</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Language Card 2 -->
+                <div class="column is-3">
+                    <div class="card language-card">
+                        <div class="card-content has-text-centered">
+                            <span class="icon is-large">
+                                <i class="fas fa-language fa-3x"></i>
+                            </span>
+                            <p class="title is-4 mt-3">Ewondo</p>
+                            <p class="subtitle is-6">Cameroon</p>
+                            <button class="button is-primary is-outlined">Select</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Language Card 3 -->
+                <div class="column is-3">
+                    <div class="card language-card">
+                        <div class="card-content has-text-centered">
+                            <span class="icon is-large">
+                                <i class="fas fa-language fa-3x"></i>
+                            </span>
+                            <p class="title is-4 mt-3">Fula</p>
+                            <p class="subtitle is-6">West Africa</p>
+                            <button class="button is-primary is-outlined">Select</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Call-to-Action -->
+    <section class="section">
+        <div class="container has-text-centered">
+            <h2 class="title is-2">Ready to Learn African Writing Systems?</h2>
+            <p class="subtitle is-4">Join thousands reclaiming African literacy.</p>
+            <div class="buttons is-centered mt-5">
+                <a class="button is-primary is-large has-text-white">
+                    <span>Sign Up Free</span>
+                    <span class="icon">
+                        <i class="fas fa-user-plus"></i>
+                    </span>
+                </a>
+                <a class="button is-dark is-large has-text-white">
+                    <span>Explore Languages</span>
+                    <span class="icon">
+                        <i class="fas fa-search"></i>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

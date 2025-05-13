@@ -1,0 +1,16 @@
+services:
+  lewa-web:
+    image: lewa
+    build: .
+    volumes:
+      - static_data:/app/staticfiles
+  lewa-nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - static_data:/app/staticfiles:ro
+    ports:
+      - 8000:80
+
+volumes:
+  static_data:
