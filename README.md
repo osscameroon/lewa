@@ -1,6 +1,8 @@
 lewa
 ===
 
+![Screenshot From 2025-05-13 21-36-44](https://github.com/user-attachments/assets/4b593e17-916f-4854-b68f-67f8a404a47f)
+
 A platform to learn African writing systems.
 
 Background
@@ -12,16 +14,10 @@ While Input Method Engines (IMEs) exist to facilitate typing in these scripts, t
 
 Through this project, we aim to make African writing systems more accessible by helping users learn not only the scripts themselves, but also their alphabets and pronunciations.
 
-_NB: This project derived from [osscameroon/project-ideas#53](https://github.com/osscameroon/project-ideas/issues/53)._
-=======
-
 ## Table of Contents
-* **[Installation](#installation)**
-  * [uv](#uv)
-  * [Pip](#pip)
-  * [Docker](#docker)
-* [Contributing](#contributing)
-* [Support](#support)
+* [Installation](#-installation)
+* [Contributing](#-contributing)
+* [Support](#%EF%B8%8F-support)
 * [License](#license)
 
 ## 📖 Installation
