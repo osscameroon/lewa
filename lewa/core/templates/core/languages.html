@@ -3,10 +3,12 @@
     <section class="hero is-african-theme-3 is-medium">
         <div class="hero-body">
             <div class="container has-text-centered">
-                <h1 class="title is-1 has-text-white">
-                    <i class="fas fa-globe-africa"></i> African Languages & Writing Systems
-                </h1>
-                <p class="subtitle has-text-light">Discover the diversity of scripts across the continent</p>
+                <div class="content is-large">
+                    <h1 class="has-text-white">
+                        <i class="fas fa-globe-africa"></i> African Languages & Writing Systems
+                    </h1>
+                    <p class="has-text-light">Discover the diversity of scripts across the continent</p>
+                </div>
             </div>
         </div>
     </section>
@@ -106,26 +108,26 @@
                     {% endfor %}
                 </div>
             </div>
-        </section>
-        <!-- Call to Action -->
-        <section class="section has-background-light">
+        </div>
+    </section>
+    <hr />
+    <!-- Call to Action -->
+    <section class="hero is-medium" id="action">
+        <div class="hero-body">
             <div class="container has-text-centered">
-                <h2 class="title is-3">Ready to Learn a Script?</h2>
-                <p class="subtitle is-5">Choose a language to start your journey</p>
+                <div class="content is-medium">
+                    <h2>You don't found your language?</h2>
+                    <p>Help us to touch the more languages as possible.</p>
+                </div>
                 <div class="buttons is-centered mt-4">
-                    <a href="pronunciation.html" class="button is-primary is-medium">
+                    <a class="button is-primary is-medium">
                         <span class="icon">
-                            <i class="fas fa-volume-up"></i>
+                            <i class="fas fa-user-group"></i>
                         </span>
-                        <span>Pronunciation Guide</span>
-                    </a>
-                    <a href="typing.html" class="button is-info is-medium">
-                        <span class="icon">
-                            <i class="fas fa-keyboard"></i>
-                        </span>
-                        <span>Typing Practice</span>
+                        <span>Join the community</span>
                     </a>
                 </div>
             </div>
-        </section>
-    {% endblock content %}
+        </div>
+    </section>
+{% endblock content %}
