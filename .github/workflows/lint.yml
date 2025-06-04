@@ -19,4 +19,6 @@ jobs:
           ruff format --check lewa
           ruff check --output-format=github lewa
       - name: Run Djlint
-        run: djlint --check lewa
+        run: |
+          djlint --lint lewa
+          djlint --check lewa
