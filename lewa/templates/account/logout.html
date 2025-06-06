@@ -1,0 +1,19 @@
+{% extends 'account/base.html' %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% block title %}
+    {% trans "Log out" %}
+{% endblock %}
+{% block hero %}
+    <div class="content">
+        <h1>{% trans "Sign Out" %}</h1>
+        <p>{% trans "Are you sure you want to sign out?" %}</p>
+    </div>
+    <form method="post" action="{% url 'account_logout' %}">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <div class="control">
+            <button class="button is-danger" type="submit">{% trans "Sign Out" %}</button>
+        </div>
+    </form>
+{% endblock hero %}

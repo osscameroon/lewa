@@ -12,18 +12,45 @@
                         <span class="has-text-weight-bold">Lewa</span>
                     </span>
                 </a>
+<a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
             </div>
-            <div class="navbar-menu">
+            <div class="navbar-menu" id="navbarMenu">
                 <div class="navbar-end">
-                    <a class="navbar-item" href="/">Home</a>
-                    <a class="navbar-item" href="{% url 'about' %}">About</a>
-                    <a class="navbar-item" href="{% url 'languages' %}">Languages</a>
-                    <a class="navbar-item" href="#">Login</a>
-                    <a class="navbar-item button is-primary" href="#">Sign Up</a>
+                    {% if user.is_authenticated %}
+                        <div class="navbar-item has-dropdown is-hoverable">
+                            <a class="navbar-link">{{ user.email }}</a>
+                            <div class="navbar-dropdown">
+                                <a class="navbar-item" href="{% url 'account_change_password' %}">Change password</a><a class="navbar-item" href="{% url 'account_email' %}">Change email</a>
+                                <hr class="navbar-divider">
+                                <a class="navbar-item" href="{% url 'account_logout' %}">Sign out</a>
+                            </div>
+                        </div>
+                    {% else %}
+                        <a class="navbar-item" href="/">Home</a>
+                        <a class="navbar-item" href="{% url 'about' %}">About</a>
+                        <a class="navbar-item" href="{% url 'languages' %}">Languages</a>
+                        <a class="navbar-item" href="{% url 'account_login' %}">Login</a>
+                        <a class="navbar-item button is-primary"
+                           href="{% url 'account_signup' %}">Sign Up</a>
+                    {% endif %}
                 </div>
             </div>
         </div>
     </nav>
+    {% if messages %}
+        {% for message in messages %}
+            {% with l=message.level %}
+                <div class="notification is-{% if l == 10 or l == 20 %}info{% elif l == 25 %}primary{% elif l == 30 %}warning{% elif l == 40 %}danger{% else %}secondary{% endif %}">
+                    {{ message }}
+                </div>
+            {% endwith %}
+        {% endfor %}
+    {% endif %}
     {% block content %}
     {% endblock content %}
     <!-- Footer -->

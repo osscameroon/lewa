@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+    <section class="hero is-fullheight-with-navbar">
+        <div class="hero-body">
+            <div class="container">
+                <div class="columns">
+                    <div class="column"></div>
+                    <div class="column is-two-thirds">
+                        <div class="box">
+                            {% block hero %}
+                            {% endblock hero %}
+                        </div>
+                    </div>
+                    <div class="column"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}
