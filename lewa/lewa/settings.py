@@ -213,3 +213,6 @@ CSRF_TRUSTED_ORIGINS = [
     "http://localhost:8000",  # Default Django dev server
     "http://127.0.0.1:8000",  # Alternative local address
 ]
+
+# Static database
+LEWA_DATA_DIR = BASE_DIR / "lewa-data"

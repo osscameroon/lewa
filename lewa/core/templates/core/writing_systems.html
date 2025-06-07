@@ -5,9 +5,11 @@
             <div class="container has-text-centered">
                 <div class="content is-large">
                     <h1 class="has-text-white">
-                        <i class="fas fa-globe-africa"></i> African Languages
+                        <i class="fas fa-globe-africa"></i> African Writing Systems
                     </h1>
-                    <p class="has-text-light">Discover the diversity of languages across the continent.</p>
+                    <p class="has-text-light">
+                        A writing system is a set of symbols and rules that represent a language. Learn about the different types of african writing systems, and their stories.
+                    </p>
                 </div>
             </div>
         </div>
@@ -15,58 +17,48 @@
     <!-- Main Content -->
     <section class="section">
         <div class="container">
-            <h2 class="title is-3 has-text-centered mb-6">African Languages</h2>
+            <h2 class="title is-3 has-text-centered mb-6">Latin and traditional african writing systems</h2>
             <div class="box has-background-secondary mt-6">
                 <div class="content">
-                    <h3 class="title is-4">About African Languages</h3>
+                    <h3 class="title is-4">About African Writing Systems</h3>
                     <p>
-                        The number of languages natively spoken in Africa is variously estimated at between 1,250 and 2,100, and by some counts at over 3,000. Nigeria alone has over 500 languages, one of the greatest concentrations of linguistic diversity in the world. <a href="https://en.wikipedia.org/wiki/Languages_of_Africa"
+                        The <b>writing systems of Africa</b> are the current and historical writing systems used on the African continent, both those which are indigenous and those which were introduced. In many African societies, history was traditionally recorded orally despite most societies having developed a writing script, leading to them being termed "oral cultures" in contrast to "literate cultures". However, this generalization misses the significant pre-modern use of written languages in various African cultures and the widespread modern adoption of written language on the continent. <a href="https://en.wikipedia.org/wiki/Writing_systems_of_Africa"
     target="_blank"><i>[source]</i></a>
                     </p>
                 </div>
             </div>
             <div class="columns is-multiline">
-                {% for lang in languages %}
+                {% for ws in writing_systems %}
                     <div class="column is-4">
                         <div class="card language-card">
                             <div class="card-content">
                                 <div class="media">
                                     <div class="media-left">
-                                        <i class="fi fi-{{ lang.country_code }}"></i>
+                                        <i class="fi fi-{{ ws.country_code }}"></i>
                                     </div>
                                     <div class="media-content">
-                                        <p class="title is-4">{{ lang.name }}</p>
-                                        <p class="subtitle is-6">{{ lang.short.en }}</p>
+                                        <p class="title is-4">{{ ws.name }}</p>
+                                        <p class="subtitle is-6 is-italic">{{ ws.script_type|capfirst }}</p>
                                     </div>
                                 </div>
                                 <div class="content">
-                                    {{ lang.description.en }}
-                                    <a href="{{ lang.description.source }}" target="_blank"><i>[source]</i></a>
+                                    {{ ws.description.en }}
+                                    <a href="{{ ws.description.source }}" target="_blank"><i>[source]</i></a>
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <span class="card-footer-item">Writing systems:</span>
+                                <span class="card-footer-item">Languages:</span>
                                 <div class="card-footer-item">
-                                    {% for ws in lang.writing_systems %}
-                                        <a class="tag" href="{% url 'writing-systems' writing_system=ws %}">{{ ws }}</a>&nbsp;
+                                    {% for lang in ws.languages %}
+                                        <a class="tag" href="{% url 'languages' language=lang %}">{{ lang }}</a>&nbsp;
                                     {% endfor %}
                                 </div>
                             </div>
                             <div class="card-footer">
                                 <a class="card-footer-item">
                                     <span class="content is-small">
-                                        <i class="fa fa-volume-up"></i>&nbsp;
-                                        Learn to Speak /&nbsp;
-                                        <i class="fa fa-ear-listen"></i>&nbsp;
-                                        Listen
-                                    </span>
-                                </a>
-                                <a class="card-footer-item">
-                                    <span class="content is-small">
                                         <i class="fa fa-font"></i>&nbsp;
-                                        Learn to Type /&nbsp;
-                                        <i class="fa fa-volume-up"></i>&nbsp;
-                                        Read
+                                        Learn to Type
                                     </span>
                                 </a>
                             </div>
@@ -82,8 +74,8 @@
         <div class="hero-body">
             <div class="container has-text-centered">
                 <div class="content is-medium">
-                    <h2>You don't found your language?</h2>
-                    <p>Help us to touch the more languages as possible.</p>
+                    <h2>You don't found your writing system?</h2>
+                    <p>Help us to touch the more writing systems as possible.</p>
                 </div>
                 <div class="buttons is-centered mt-4">
                     <a class="button is-primary is-medium">

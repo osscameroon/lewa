@@ -1,0 +1,13 @@
+[info]
+name = "Feʼfeʼ"
+country_code = "cm"
+writing_systems = ["gacl"]
+afrim_data = ["fmp"]
+
+[info.short]
+source = "https://en.wikipedia.org/wiki/Fe%CA%BCfe%CA%BC_language"
+en = "Southern Bantoid language spoken in Cameroon"
+
+[info.description]
+source = "https://en.wikipedia.org/wiki/Fe%CA%BCfe%CA%BC_language"
+en = "Feʼfeʼ is a member of the Bamileke group of the Eastern Grassfields branch of the South Bantoid language family. It is spoken by about 140,000 people in the Haut-Nkam (Upper Nkam) Department in the West Region in the southwest of Cameroon, particularly around the town of Bafang."
