@@ -1,0 +1,13 @@
+[info]
+name = "Bamun"
+country_code = "cm"
+writing_systems = ["bamun", "gacl"]
+afrim-data = ["bax"]
+
+[info.short]
+source = "https://en.wikipedia.org/wiki/Bamum_language"
+en = "One of the Benue–Congo languages of Cameroon"
+
+[info.description]
+source = "https://en.wikipedia.org/wiki/Bamum_language"
+en = "Bamum, also known as Shupamem, Bamun, or Bamoun, is an Eastern Grassfields language of Cameroon, with approximately 420,000 speakers. The language is well known for its original script developed by King Njoya and his palace circle in the Kingdom of Bamum around 1895. Cameroonian musician Claude Ndam was a native speaker of the language and sang it in his music."

@@ -1,0 +1,9 @@
+[info]
+name = "Bamun"
+languages = ["cm-bax"]
+script_type = "syllabary"
+country_code = "cm"
+
+[info.description]
+source = "https://en.wikipedia.org/wiki/Bamum_script"
+en = "The Bamum scripts are an evolutionary series of six scripts created for the Bamum language by Ibrahim Njoya, King of Bamum (now western Cameroon). They are notable for evolving from a pictographic system to a semi-syllabary in the space of fourteen years, from 1896 to 1910. Bamum type was cast in 1918, but the script fell into disuse around 1931. A project began around 2007 to revive the Bamum script."

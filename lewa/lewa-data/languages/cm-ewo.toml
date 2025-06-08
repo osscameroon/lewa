@@ -1,0 +1,13 @@
+[info]
+name = "Ewondo"
+country_code = "cm"
+writing_systems = ["gacl"]
+afrim_data = ["ewo"]
+
+[info.short]
+source = "https://en.wikipedia.org/wiki/Ewondo_language"
+en = "Bantu language"
+
+[info.description]
+source = "https://en.wikipedia.org/wiki/Ewondo_language"
+en = "Ewondo or Beti is a Bantu language spoken by the Beti people of Cameroon. The language had 577,700 native speakers in 1982. Ewondo is a trade language. Dialects include Badjia, Bafeuk, Bemvele, Bane, Beti, Enoah, Evouzom, Mbida-Bani, Mvete, Mvog-Niengue, Omvang, Yabekolo, Yabeka, and Yabekanga. Ewondo speakers live primarily in Cameroon's Centre Region and the northern part of the Océan division in the South Region."

@@ -1,0 +1,9 @@
+[info]
+name = "Geez"
+languages = ["et-am"]
+script_type = "abugida"
+country_code = "et"
+
+[info.description]
+source = "https://en.wikipedia.org/wiki/Ge%CA%BDez"
+en = "Geʽez is an ancient South Semitic language. The language originates from what is now Ethiopia and Eritrea. Today, Geʽez is used as the main liturgical language of the Ethiopian Orthodox Tewahedo Church, the Eritrean Orthodox Tewahedo Church, the Ethiopian Catholic Church, the Eritrean Catholic Church, and the Beta Israel Jewish community. Hawulti Obelisk is an ancient pre-Aksumite obelisk located in Matara, Eritrea."

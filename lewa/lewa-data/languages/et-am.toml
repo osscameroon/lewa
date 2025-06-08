@@ -1,0 +1,13 @@
+[info]
+name = "Amharic"
+country_code = "et"
+writing_systems = ["geez"]
+afrim_data = ["am"]
+
+[info.short]
+source = "https://en.wikipedia.org/wiki/Amharic"
+en = "Semitic language of Ethiopia"
+
+[info.description]
+source = "https://en.wikipedia.org/wiki/Amharic"
+en = "Amharic is an Ethio-Semitic language, which is a subgrouping within the Semitic branch of the Afroasiatic languages. It is spoken as a first language by the Amhara people, and also serves as a lingua franca for all other metropolitan populations in Ethiopia. The language serves as the official working language of the Ethiopian federal government, and is also the official or working language of several of Ethiopia's federal regions."
