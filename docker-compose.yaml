@@ -11,6 +11,14 @@ services:
       - static_data:/app/staticfiles:ro
     ports:
       - 8000:80
+  frontend:
+    build:
+      context: ./lewa-frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
 
 volumes:
   static_data:
