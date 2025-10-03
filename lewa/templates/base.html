@@ -1,74 +1,71 @@
 {% extends "_base.html" %}
 {% block body %}
-    <!-- Navigation Bar -->
-    <nav class="navbar is-dark">
-        <div class="container">
-            <div class="navbar-brand">
-                <a class="navbar-item" href="/">
-                    <span class="icon-text">
-                        <span class="icon">
-                            <i class="fas fa-book-open"></i>
-                        </span>
-                        <span class="has-text-weight-bold">Lewa</span>
+<!-- Navigation Bar -->
+<nav class="navbar is-dark">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+                <span class="icon-text">
+                    <span class="icon">
+                        <i class="fas fa-book-open"></i>
                     </span>
-                </a>
-                <a role="button"
-                   class="navbar-burger"
-                   aria-label="menu"
-                   aria-expanded="false"
-                   data-target="navbarMenu">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                </a>
-            </div>
-            <div class="navbar-menu" id="navbarMenu">
-                <div class="navbar-end">
-                    {% if user.is_authenticated %}
-                        <div class="navbar-item has-dropdown is-hoverable">
-                            <a class="navbar-link">{{ user.email }}</a>
-                            <div class="navbar-dropdown">
-                                <a class="navbar-item" href="{% url 'account_change_password' %}">Change password</a><a class="navbar-item" href="{% url 'account_email' %}">Change email</a>
-                                <hr class="navbar-divider">
-                                <a class="navbar-item" href="{% url 'account_logout' %}">Sign out</a>
-                            </div>
-                        </div>
-                    {% else %}
-                        <a class="navbar-item" href="/">Home</a>
-                        <a class="navbar-item" href="{% url 'about' %}">About</a>
-                        <a class="navbar-item" href="{% url 'languages' %}">Languages</a>
-                        <a class="navbar-item" href="{% url 'account_login' %}">Login</a>
-                        <a class="navbar-item button is-primary"
-                           href="{% url 'account_signup' %}">Sign Up</a>
-                    {% endif %}
+                    <span class="has-text-weight-bold">Lewa</span>
+                </span>
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu" id="navbarMenu">
+            <div class="navbar-end">
+                {% if user.is_authenticated %}
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">{{ user.email }}</a>
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" href="{% url 'account_change_password' %}">Change password</a><a
+                            class="navbar-item" href="{% url 'account_email' %}">Change email</a>
+                        <hr class="navbar-divider">
+                        <a class="navbar-item" href="{% url 'account_logout' %}">Sign out</a>
+                    </div>
                 </div>
+                {% else %}
+                <a class="navbar-item" href="/">Home</a>
+                <a class="navbar-item" href="{% url 'about' %}">About</a>
+                <a class="navbar-item" href="{% url 'languages' %}">Languages</a>
+                <a class="navbar-item" href="{% url 'account_login' %}">Login</a>
+                <a class="navbar-item button is-primary" href="{% url 'account_signup' %}">Sign Up</a>
+                {% endif %}
             </div>
         </div>
-    </nav>
-    {% if messages %}
-        {% for message in messages %}
-            {% with l=message.level %}
-                <div class="notification is-{% if l == 10 or l == 20 %}info{% elif l == 25 %}primary{% elif l == 30 %}warning{% elif l == 40 %}danger{% else %}secondary{% endif %}">
-                    {{ message }}
-                </div>
-            {% endwith %}
-        {% endfor %}
-    {% endif %}
-    {% block content %}
-    {% endblock content %}
-    <!-- Footer -->
-    <footer class="footer has-background-dark has-text-white">
-        <div class="content has-text-centered">
-            <p>
-                <strong class="has-text-white">Lewa</strong> by <a href="https://osscameroon.com">osscameroon</a>.
-            </p>
-            <div class="mt-3">
-                <a href="https://x.com/osscameroon/" class="has-text-white mx-2"><i class="fab fa-twitter"></i></a>
-                <a href="https://linkedin/company/osscameroon/"
-                   class="has-text-white mx-2"><i class="fab fa-facebook"></i></a>
-                <a href="https://github.com/osscameroon" class="has-text-white mx-2"><i class="fab fa-github"></i></a>
-            </div>
+    </div>
+</nav>
+{% if messages %}
+{% for message in messages %}
+{% with l=message.level %}
+<div
+    class="notification is-{% if l == 10 or l == 20 %}info{% elif l == 25 %}primary{% elif l == 30 %}warning{% elif l == 40 %}danger{% else %}secondary{% endif %}">
+    {{ message }}
+</div>
+{% endwith %}
+{% endfor %}
+{% endif %}
+{% block content %}
+{% endblock content %}
+<!-- Footer -->
+<footer class="footer has-background-dark has-text-white">
+    <div class="content has-text-centered">
+        <p>
+            <strong class="has-text-white">Lewa</strong> by <a href="https://osscameroon.com">osscameroon</a>.
+        </p>
+        <div class="mt-3">
+            <a href="https://x.com/osscameroon/" class="has-text-white mx-2"><i class="fab fa-twitter"></i></a>
+            <a href="https://linkedin/company/osscameroon/" class="has-text-white mx-2"><i
+                    class="fab fa-facebook"></i></a>
+            <a href="https://github.com/osscameroon" class="has-text-white mx-2"><i class="fab fa-github"></i></a>
         </div>
-    </footer>
+    </div>
+</footer>
 {% endblock body %}

@@ -11,7 +11,10 @@ dependencies = [
     "django-debug-toolbar~=5.2",
     "pillow~=11.2",
     "whitenoise~=6.9",
-    "python-decouple~=3.8"
+    "python-decouple~=3.8",
+    "django-tailwind>=4.2.0",
+    "cookiecutter>=2.6.0",
+    "honcho>=2.0.0",
 ]
 
 [dependency-groups]

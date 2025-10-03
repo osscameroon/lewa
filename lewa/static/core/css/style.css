@@ -1,46 +1,60 @@
 .hero.is-african-theme {
     background: linear-gradient(135deg, #2c3e50 0%, #4a6491 100%);
 }
+
 .language-card:hover {
     transform: translateY(-5px);
     transition: transform 0.3s ease;
 }
+
 .feature-icon {
     font-size: 2.5rem;
     margin-bottom: 1rem;
     color: #48c774;
 }
+
 .title.is-underline {
     border-bottom: 3px solid #48c774;
     display: inline-block;
     padding-bottom: 5px;
 }
+
 :root {
-      --african-purple: #5D3FD3;  /* Primary brand color */
-      --african-gold: #FFD700;    /* Accent */
-    }
-    .hero-about {
-      background: linear-gradient(135deg, var(--african-purple), #1E90FF);
-    }
-    .gacl-badge {
-      border: 2px solid var(--african-gold);
-      border-radius: 8px;
-    }
-    .cultural-icon {
-      color: var(--african-purple);
-    }
+    --african-purple: #5D3FD3;
+    /* Primary brand color */
+    --african-gold: #FFD700;
+    /* Accent */
+}
+
+.hero-about {
+    background: linear-gradient(135deg, var(--african-purple), #1E90FF);
+}
+
+.gacl-badge {
+    border: 2px solid var(--african-gold);
+    border-radius: 8px;
+}
+
+.cultural-icon {
+    color: var(--african-purple);
+}
+
 .tab-content {
-      display: none;
-    }
-    .tab-content.is-active {
-      display: block;
-    }
-    .hero.is-african-theme-2 {
-      background: linear-gradient(135deg, var(--african-purple), #4B0082);
-    }
-    .hero.is-african-theme-3 {
+    display: none;
+}
+
+.tab-content.is-active {
+    display: block;
+}
+
+.hero.is-african-theme-2 {
+    background: linear-gradient(135deg, var(--african-purple), #4B0082);
+}
+
+.hero.is-african-theme-3 {
     background: linear-gradient(135deg, #5D3FD3 0%, #1E3F20 100%);
 }
-    .hero.is-african-theme-4 {
+
+.hero.is-african-theme-4 {
     background: linear-gradient(135deg, #2A0845 0%, #0F2923 100%);
 }
