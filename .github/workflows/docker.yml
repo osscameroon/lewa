@@ -10,7 +10,7 @@ jobs:
           docker build -t lewa .
       - name: Test the image
         run: |
-          docker run -p 8000 -d lewa
+          docker run -p 8000:8000 -d lewa
           sleep 5
           for i in $(seq 10); do
             if curl -sI http://127.0.0.1:8000 | grep 'HTTP/1.1 200 OK'; then
