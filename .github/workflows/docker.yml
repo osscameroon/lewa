@@ -15,8 +15,10 @@ jobs:
           sleep 5
           for i in 5 4 3 2 1 0; do
             if curl -sI http://127.0.0.1:8000 | grep 'HTTP/1.1 200 OK'; then
-              break;
+              exit 0;
             fi
 
             echo "Trying to connect to the lewa server..."
           done
+
+          exit 1
