@@ -10,7 +10,6 @@ jobs:
           docker build -t lewa .
       - name: Test the image
         run: |
-          set -ex
           docker run -d lewa
           sleep 5
           for i in $(seq 10); do
@@ -21,5 +20,7 @@ jobs:
             echo "Trying to connect to the lewa server..."
             sleep 1
           done
+
+          curl http://127.0.0.1:8000
 
           exit 1
