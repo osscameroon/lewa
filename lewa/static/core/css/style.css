@@ -44,3 +44,23 @@
     .hero.is-african-theme-4 {
     background: linear-gradient(135deg, #2A0845 0%, #0F2923 100%);
 }
+.keyboard-container {
+    background-color: var(--bg-soft);
+    border: 1px solid var(--glass-border);
+}
+.key-btn {
+    background-color: #2a2a35;
+    color: white;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 4px 0 #15151a;
+    font-family: var(--font-stack);
+}
+.key-btn:hover {
+    background-color: #353542;
+    color: var(--african-gold);
+    transform: translateY(-2px);
+}
+.key-btn:active {
+    transform: translateY(2px);
+    box-shadow: none;
+}

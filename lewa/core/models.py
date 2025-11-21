@@ -38,4 +38,4 @@ class LewaData:
             with open(im_file, "rb") as f:
                 data = tomllib.load(f)
 
-            yield data["info"]
+            yield data
