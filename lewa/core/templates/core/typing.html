@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
     <section class="section">
         <div class="container">
@@ -78,7 +79,7 @@
                     </span>
                     <span>Hear Pronunciation</span>
                 </button>
-                <button id="reset-btn" class="button is-danger is-light">
+                <button id="reset-btn" class="button is-danger is-light" onclick="resetInput()">
                     <span class="icon">
                         <i class="fas fa-redo"></i>
                     </span>
@@ -93,11 +94,10 @@
             </div>
             <!-- Keyboard Placeholder -->
             <div class="keyboard-placeholder box has-text-centered">
-                <p class="mb-3">
-                    <i class="fas fa-keyboard fa-3x"></i>
-                </p>
-                <p class="subtitle">Custom GACL Keyboard Will Appear Here</p>
             </div>
         </div>
     </section>
+    <script src="{% static 'core/js/keyboard.js' %}"></script>
+    <script src="{% static 'core/js/typing.js' %}"></script>
+
 {% endblock content %}
