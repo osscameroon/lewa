@@ -11,21 +11,30 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import environ
+import os
+
+env = environ.Env(
+    DEBUG=(bool, False),
+    ALLOWED_HOSTS=(list, []),
+    DATABASE_URL=(str, "sqlite:///db.sqlite3")
+)
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "insecure-0peo@#x9jur3!h$ryje!$879xww8y1y66jx!%*#ymhg&jkozs2"
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1"]
+ALLOWED_HOSTS = env('ALLOWED_HOSTS')
 
 
 # Application definition
@@ -40,6 +49,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.humanize",
     "django.contrib.sites",
+    # Security
+    "csp",
     # Third-party
     "allauth",
     "allauth.account",
@@ -54,6 +65,7 @@ INSTALLED_APPS = [
 # https://docs.djangoproject.com/en/dev/ref/settings/#middleware
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "csp.middleware.CSPMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",  # WhiteNoise
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -91,10 +103,7 @@ WSGI_APPLICATION = "lewa.wsgi.application"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
+    'default': env.db(),
 }
 
 # For Docker/PostgreSQL usage uncomment this and comment the DATABASES config above
@@ -154,6 +163,39 @@ STATIC_URL = "/static/"
 # https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
 STATICFILES_DIRS = [BASE_DIR / "static"]
 
+HTTPS_ENABLED = env.bool("HTTPS_ENABLED", default=not DEBUG)
+if HTTPS_ENABLED:
+    # https://docs.djangoproject.com/en/dev/ref/settings/#secure-ssl-redirect
+    SECURE_SSL_REDIRECT = True
+    # https://docs.djangoproject.com/en/dev/ref/settings/#session-cookie-secure
+    SESSION_COOKIE_SECURE = True
+    # https://docs.djangoproject.com/en/dev/ref/settings/#csrf-cookie-secure
+    CSRF_COOKIE_SECURE = True
+    # https://docs.djangoproject.com/en/dev/ref/settings/#secure-hsts-seconds
+    SECURE_HSTS_SECONDS = 31536000 
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
+    # https://docs.djangoproject.com/en/dev/ref/settings/#secure-proxy-ssl-header
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+CSP_DEFAULT_SRC = ("'self'",)
+CSP_STYLE_SRC = (
+    "'self'", 
+    "'unsafe-inline'",
+    "https://cdn.jsdelivr.net", 
+    "https://cdnjs.cloudflare.com", 
+)
+CSP_SCRIPT_SRC = (
+    "'self'", 
+    "'unsafe-inline'",
+    "https://cdn.jsdelivr.net"
+)
+CSP_FONT_SRC = (
+    "'self'", 
+    "https://cdnjs.cloudflare.com", 
+)
+CSP_IMG_SRC = ("'self'", "data:")
+
 # https://whitenoise.readthedocs.io/en/latest/django.html
 STORAGES = {
     "default": {
@@ -202,6 +244,14 @@ ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_LOGIN_METHODS = {"email"}
 ACCOUNT_SIGNUP_FIELDS = ["email*", "password1*"]
 ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_EMAIL_VERIFICATION = "mandatory" if not DEBUG else "optional"
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_EMAIL_REQUIRED = True
+
+# https://docs.allauth.org/en/latest/mfa/configuration.html
+MFA_ADAPTER = "allauth.mfa.adapter.DefaultMFAAdapter"
+
+MFA_SUPPORTED_TYPES = ["totp", "recovery_codes"]
 
 # django-debug-toolbar
 # https://django-debug-toolbar.readthedocs.io/en/latest/installation.html
