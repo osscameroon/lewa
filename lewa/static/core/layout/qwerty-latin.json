@@ -1,0 +1,82 @@
+{
+  "meta": {
+    "name": "QWERTY Latin",
+    "description": "Example Plain QWERTY Latin layout.",
+    "version": "1.0"
+  },
+  "policy": {
+    "shift": {
+      "mode": "one-time",
+      "cancelOnSecondClick": true
+    },
+    "caps": {
+      "mode": "toggle",
+      "affects": "letters"
+    }
+  },
+  "layout": [
+    [
+      { "id": "`", "forms": { "default": "`", "shift": "~", "caps": "`", "shiftCaps": "~" } },
+      { "id": "1", "forms": { "default": "1", "shift": "!", "caps": "1", "shiftCaps": "!" } },
+      { "id": "2", "forms": { "default": "2", "shift": "@", "caps": "2", "shiftCaps": "@" } },
+      { "id": "3", "forms": { "default": "3", "shift": "#", "caps": "3", "shiftCaps": "#" } },
+      { "id": "4", "forms": { "default": "4", "shift": "$", "caps": "4", "shiftCaps": "$" } },
+      { "id": "5", "forms": { "default": "5", "shift": "%", "caps": "5", "shiftCaps": "%" } },
+      { "id": "6", "forms": { "default": "6", "shift": "^", "caps": "6", "shiftCaps": "^" } },
+      { "id": "7", "forms": { "default": "7", "shift": "&", "caps": "7", "shiftCaps": "&" } },
+      { "id": "8", "forms": { "default": "8", "shift": "*", "caps": "8", "shiftCaps": "*" } },
+      { "id": "9", "forms": { "default": "9", "shift": "(", "caps": "9", "shiftCaps": "(" } },
+      { "id": "0", "forms": { "default": "0", "shift": ")", "caps": "0", "shiftCaps": ")" } },
+      { "id": "-", "forms": { "default": "-", "shift": "_", "caps": "-", "shiftCaps": "_" } },
+      { "id": "=", "forms": { "default": "=", "shift": "+", "caps": "=", "shiftCaps": "+" } }
+    ],
+    [
+      { "id": "q", "forms": { "default": "q", "shift": "Q", "caps": "Q", "shiftCaps": "q" } },
+      { "id": "w", "forms": { "default": "w", "shift": "W", "caps": "W", "shiftCaps": "w" } },
+      { "id": "e", "forms": { "default": "e", "shift": "E", "caps": "E", "shiftCaps": "e" } },
+      { "id": "r", "forms": { "default": "r", "shift": "R", "caps": "R", "shiftCaps": "r" } },
+      { "id": "t", "forms": { "default": "t", "shift": "T", "caps": "T", "shiftCaps": "t" } },
+      { "id": "y", "forms": { "default": "y", "shift": "Y", "caps": "Y", "shiftCaps": "y" } },
+      { "id": "u", "forms": { "default": "u", "shift": "U", "caps": "U", "shiftCaps": "u" } },
+      { "id": "i", "forms": { "default": "i", "shift": "I", "caps": "I", "shiftCaps": "i" } },
+      { "id": "o", "forms": { "default": "o", "shift": "O", "caps": "O", "shiftCaps": "o" } },
+      { "id": "p", "forms": { "default": "p", "shift": "P", "caps": "P", "shiftCaps": "p" } },
+      { "id": "[", "forms": { "default": "[", "shift": "{", "caps": "[", "shiftCaps": "{" } },
+      { "id": "]", "forms": { "default": "]", "shift": "}", "caps": "]", "shiftCaps": "}" } },
+      { "id": "\\", "forms": { "default": "\\", "shift": "|", "caps": "\\", "shiftCaps": "|" } }
+    ],
+    [
+      { "id": "a", "forms": { "default": "a", "shift": "A", "caps": "A", "shiftCaps": "a" } },
+      { "id": "s", "forms": { "default": "s", "shift": "S", "caps": "S", "shiftCaps": "s" } },
+      { "id": "d", "forms": { "default": "d", "shift": "D", "caps": "D", "shiftCaps": "d" } },
+      { "id": "f", "forms": { "default": "f", "shift": "F", "caps": "F", "shiftCaps": "f" } },
+      { "id": "g", "forms": { "default": "g", "shift": "G", "caps": "G", "shiftCaps": "g" } },
+      { "id": "h", "forms": { "default": "h", "shift": "H", "caps": "H", "shiftCaps": "h" } },
+      { "id": "j", "forms": { "default": "j", "shift": "J", "caps": "J", "shiftCaps": "j" } },
+      { "id": "k", "forms": { "default": "k", "shift": "K", "caps": "K", "shiftCaps": "k" } },
+      { "id": "l", "forms": { "default": "l", "shift": "L", "caps": "L", "shiftCaps": "l" } },
+      { "id": ";", "forms": { "default": ";", "shift": ":", "caps": ";", "shiftCaps": ":" } },
+      { "id": "'", "forms": { "default": "'", "shift": "\"", "caps": "'", "shiftCaps": "\"" } }
+    ],
+    [
+      { "id": "Shift", "forms": { "default": "Shift", "shift": "Shift", "caps": "Shift", "shiftCaps": "Shift" } },
+      { "id": "z", "forms": { "default": "z", "shift": "Z", "caps": "Z", "shiftCaps": "z" } },
+      { "id": "x", "forms": { "default": "x", "shift": "X", "caps": "X", "shiftCaps": "x" } },
+      { "id": "c", "forms": { "default": "c", "shift": "C", "caps": "C", "shiftCaps": "c" } },
+      { "id": "v", "forms": { "default": "v", "shift": "V", "caps": "V", "shiftCaps": "v" } },
+      { "id": "b", "forms": { "default": "b", "shift": "B", "caps": "B", "shiftCaps": "b" } },
+      { "id": "n", "forms": { "default": "n", "shift": "N", "caps": "N", "shiftCaps": "n" } },
+      { "id": "m", "forms": { "default": "m", "shift": "M", "caps": "M", "shiftCaps": "m" } },
+      { "id": ",", "forms": { "default": ",", "shift": "<", "caps": ",", "shiftCaps": "<" } },
+      { "id": ".", "forms": { "default": ".", "shift": ">", "caps": ".", "shiftCaps": ">" } },
+      { "id": "/", "forms": { "default": "/", "shift": "?", "caps": "/", "shiftCaps": "?" } },
+      { "id": "Backspace", "forms": { "default": "Backspace", "shift": "Backspace", "caps": "Backspace", "shiftCaps": "Backspace" } }
+    ],
+    [
+      { "id": "Caps", "forms": { "default": "Caps", "shift": "Caps", "caps": "Caps", "shiftCaps": "Caps" } },
+      { "id": "Space", "forms": { "default": " ", "shift": " ", "caps": " ", "shiftCaps": " " } },
+      { "id": "Enter", "forms": { "default": "Enter", "shift": "Enter", "caps": "Enter", "shiftCaps": "Enter" } }
+    ]
+  ],
+  "combining": {}
+}
