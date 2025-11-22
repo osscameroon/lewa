@@ -12,12 +12,28 @@
                     </p>
                 </div>
                 <div class="buttons is-centered mt-5">
-                    <a href="{% url 'typing' %}" class="button is-primary is-large">
-                        <span class="icon">
-                            <i class="fas fa-keyboard"></i>
-                        </span>
-                        <span>Start Typing Practice</span>
-                    </a>
+                    <div class="dropdown is-hoverable is-light is-large" id="typing-dropdown">
+                        <div class="dropdown-trigger">
+                            <button class="button is-light is-large" aria-haspopup="true" aria-controls="dropdown-menu">
+                                <span class="icon">
+                                    <i class="fas fa-keyboard"></i>
+                                </span>
+                                <span>Start Typing Practice</span>
+                                <span class="icon is-small">
+                                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                        </div>
+                        <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                            <div class="dropdown-content">
+                                {% for system in all_systems %}
+                                <a href="{% url 'typing' %}?writing_system_code={{ system.info.name }}" class="dropdown-item">
+                                    {{ system.info.name }}
+                                </a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
                     <a href="{% url 'pronunciation' %}" class="button is-light is-large">
                         <span class="icon">
                             <i class="fas fa-volume-up"></i>
