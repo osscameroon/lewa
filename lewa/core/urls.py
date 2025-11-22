@@ -17,5 +17,4 @@ urlpatterns = [
         name="writing-systems",
     ),
     path('leaderboard/', views.leaderboard_view, name="leaderboard"),
-    path('leaderboard/<int:page>', views.leaderboard_view, name="leaderboard"),
 ]
