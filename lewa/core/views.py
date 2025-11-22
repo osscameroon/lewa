@@ -1,3 +1,4 @@
+"""Django views, you can find the templates at `templates/core/`."""
 from django.shortcuts import render
 from django.contrib.auth import get_user_model
 from .models import LewaData
@@ -5,9 +6,11 @@ from .models import LewaData
 
 # Create your views here.
 def index(request):
+    all_systems = list(LewaData.get_writing_systems())
     return render(
         request,
-        "core/index.html",
+        "core/index.html", 
+        {"all_systems": all_systems}
     )
 
 
@@ -18,14 +21,20 @@ def about(request):
     )
 
 
-def typing(request, writing_system_code='GACL'):
+def typing(request, writing_system_code="GACL"):
     all_systems = list(LewaData.get_writing_systems())
+    writing_system_code = request.GET.get('writing_system_code')
     if writing_system_code:
-        current_system = next((writing_system for writing_system in all_systems \
-                            if writing_system["info"]["name"] == writing_system_code))
+        current_system = next(
+            (
+                writing_system
+                for writing_system in all_systems
+                if writing_system["info"]["name"] == writing_system_code
+            )
+        )
     else:
         current_system = all_systems[0] if all_systems else None
-    return render(request, "core/typing.html", { "writing_system": current_system})
+    return render(request, "core/typing.html", {"writing_system": current_system})
 
 
 def pronunciation(request):

@@ -3,6 +3,7 @@ from .models import CustomUser
 
 
 class CustomUserCreationForm(AdminUserCreationForm):
+    """User creation form, asks for both email and username"""
     class Meta:
         model = CustomUser
         fields = (
@@ -12,6 +13,7 @@ class CustomUserCreationForm(AdminUserCreationForm):
 
 
 class CustomUserChangeForm(UserChangeForm):
+    """User change preferences form, asks for both email and username"""
     class Meta:
         model = CustomUser
         fields = ("email", "username")

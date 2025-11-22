@@ -1,3 +1,4 @@
+"""URL patterns to certain paths"""
 from django.urls import path
 from . import views
 

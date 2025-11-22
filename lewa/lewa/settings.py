@@ -11,21 +11,29 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import environ
+import os
 
+env = environ.Env(
+    DEBUG=(bool, False),
+    ALLOWED_HOSTS=(list, []),
+    DATABASE_URL=(str, "sqlite:///db.sqlite3"),
+)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "insecure-0peo@#x9jur3!h$ryje!$879xww8y1y66jx!%*#ymhg&jkozs2"
+SECRET_KEY = env("SECRET_KEY", default="secret-random-key-change-me")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env("DEBUG", default=False)
 
-ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1"]
+ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["localhost", "127.0.0.1"])
 
 
 # Application definition
@@ -43,6 +51,8 @@ INSTALLED_APPS = [
     # Third-party
     "allauth",
     "allauth.account",
+    "allauth.socialaccount",  # Social account support
+    "allauth.socialaccount.providers.google",  # Google provider
     "crispy_forms",
     "crispy_bulma",
     "debug_toolbar",
@@ -91,10 +101,7 @@ WSGI_APPLICATION = "lewa.wsgi.application"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
+    "default": env.db(),
 }
 
 # For Docker/PostgreSQL usage uncomment this and comment the DATABASES config above
@@ -199,9 +206,48 @@ AUTHENTICATION_BACKENDS = (
 )
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
 ACCOUNT_SESSION_REMEMBER = True
-ACCOUNT_LOGIN_METHODS = {"email"}
-ACCOUNT_SIGNUP_FIELDS = ["email*", "password1*"]
-ACCOUNT_UNIQUE_EMAIL = True
+# Allow users to login with either username or email
+ACCOUNT_LOGIN_METHODS = {"username", "email"}
+# Signup fields - username, email, and passwords are required (the * indicates required)
+ACCOUNT_SIGNUP_FIELDS = ["username*", "email*", "password1*", "password2*"]
+ACCOUNT_UNIQUE_EMAIL = True  # Each email can only be used once
+ACCOUNT_USERNAME_MIN_LENGTH = 3  # Minimum username length
+# Email verification (set to "mandatory" for production)
+ACCOUNT_EMAIL_VERIFICATION = "none"  # Options: "none", "optional", "mandatory"
+
+# Login with either username or email
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email' 
+ACCOUNT_EMAIL_REQUIRED = True
+
+# Social account providers configuration
+SOCIALACCOUNT_PROVIDERS = {
+    "google": {
+        "SCOPE": [
+            "profile",
+            "email",
+        ],
+        "AUTH_PARAMS": {
+            "access_type": "online",
+        },
+        "OAUTH_PKCE_ENABLED": True,
+        "APP": {
+            "client_id": env("GOOGLE_OAUTH2_CLIENT_ID", default=""),
+            "secret": env("GOOGLE_OAUTH2_CLIENT_SECRET", default=""),
+            "key": "",
+        },
+    }
+}
+
+# Social account settings
+SOCIALACCOUNT_AUTO_SIGNUP = True  # Automatically create user account on first Google login
+SOCIALACCOUNT_EMAIL_REQUIRED = True  # Require email from social providers
+SOCIALACCOUNT_EMAIL_VERIFICATION = "none"  # Options: "none", "optional", "mandatory"
+SOCIALACCOUNT_QUERY_EMAIL = True  # Request email from provider
+
+# If a user logs in with Google, and that email already exists in the DB,
+# automatically log them into the existing account.
+SOCIALACCOUNT_EMAIL_AUTHENTICATION = True
+SOCIALACCOUNT_EMAIL_AUTHENTICATION_AUTO_CONNECT = True
 
 # django-debug-toolbar
 # https://django-debug-toolbar.readthedocs.io/en/latest/installation.html
