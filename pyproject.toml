@@ -1,7 +1,7 @@
 [project]
 name = "lewa"
 version = "0.1.0"
-description = "Add your description here"
+description = "A platform to learn African writing systems."
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
@@ -9,8 +9,8 @@ dependencies = [
     "django~=5.2",
     "django-allauth[openid,socialaccount]>=65.9.0",
     "django-debug-toolbar~=5.2",
+    "django-environ~=0.11.2",
     "pillow~=11.2",
-    "python-decouple>=3.8",
     "whitenoise~=6.9",
 ]
 
