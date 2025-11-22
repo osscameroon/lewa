@@ -9,13 +9,19 @@
                     <div class="level-item">
                         <div class="tags has-addons">
                             <span class="tag is-dark">Language</span>
-                            <span class="tag is-primary">Duala (GACL)</span>
+                            <span class="tag is-primary">  <select id="lang-select" onchange="resetSystem()">
+				<option value="">--Please select--</option>
+				<option value="apple">Apple</option>
+				<option value="banana">Banana</option>
+				<option value="cherry">Cherry</option>
+				<option value="date">Date</option>
+			    </select></span>
                         </div>
                     </div>
                     <div class="level-item">
                         <div class="tags has-addons">
                             <span class="tag is-dark">Lesson</span>
-                            <span class="tag is-info">3/12</span>
+                            <span id="lessons" class="tag is-info">3/12</span>
                         </div>
                     </div>
                 </div>
@@ -85,7 +91,7 @@
                     </span>
                     <span>Reset</span>
                 </button>
-                <button id="next-btn" class="button is-success" disabled>
+                <button id="next-btn" class="button is-success" onclick="nextLesson()" disabled>
                     <span class="icon">
                         <i class="fas fa-arrow-right"></i>
                     </span>
