@@ -10,6 +10,7 @@ dependencies = [
     "django-allauth[openid,socialaccount]>=65.9.0",
     "django-debug-toolbar~=5.2",
     "pillow~=11.2",
+    "python-decouple>=3.8",
     "whitenoise~=6.9",
 ]
 

@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -43,6 +44,8 @@ INSTALLED_APPS = [
     # Third-party
     "allauth",
     "allauth.account",
+    "allauth.socialaccount",  # Social account support
+    "allauth.socialaccount.providers.google",  # Google provider
     "crispy_forms",
     "crispy_bulma",
     "debug_toolbar",
@@ -199,9 +202,48 @@ AUTHENTICATION_BACKENDS = (
 )
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
 ACCOUNT_SESSION_REMEMBER = True
-ACCOUNT_LOGIN_METHODS = {"email"}
-ACCOUNT_SIGNUP_FIELDS = ["email*", "password1*"]
-ACCOUNT_UNIQUE_EMAIL = True
+# Allow users to login with either username or email
+ACCOUNT_LOGIN_METHODS = {"username", "email"}
+# Signup fields - username, email, and passwords are required (the * indicates required)
+ACCOUNT_SIGNUP_FIELDS = ["username*", "email*", "password1*", "password2*"]
+ACCOUNT_UNIQUE_EMAIL = True  # Each email can only be used once
+ACCOUNT_USERNAME_MIN_LENGTH = 3  # Minimum username length
+# Email verification (set to "mandatory" for production)
+ACCOUNT_EMAIL_VERIFICATION = "none"  # Options: "none", "optional", "mandatory"
+
+# Login with either username or email
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email' 
+ACCOUNT_EMAIL_REQUIRED = True
+
+# Social account providers configuration
+SOCIALACCOUNT_PROVIDERS = {
+    "google": {
+        "SCOPE": [
+            "profile",
+            "email",
+        ],
+        "AUTH_PARAMS": {
+            "access_type": "online",
+        },
+        "OAUTH_PKCE_ENABLED": True,
+        "APP": {
+            "client_id": config("GOOGLE_OAUTH2_CLIENT_ID", default=""),
+            "secret": config("GOOGLE_OAUTH2_CLIENT_SECRET", default=""),
+            "key": "",
+        },
+    }
+}
+
+# Social account settings
+SOCIALACCOUNT_AUTO_SIGNUP = True  # Automatically create user account on first Google login
+SOCIALACCOUNT_EMAIL_REQUIRED = True  # Require email from social providers
+SOCIALACCOUNT_EMAIL_VERIFICATION = "none"  # Options: "none", "optional", "mandatory"
+SOCIALACCOUNT_QUERY_EMAIL = True  # Request email from provider
+
+# If a user logs in with Google, and that email already exists in the DB,
+# automatically log them into the existing account.
+SOCIALACCOUNT_EMAIL_AUTHENTICATION = True
+SOCIALACCOUNT_EMAIL_AUTHENTICATION_AUTO_CONNECT = True
 
 # django-debug-toolbar
 # https://django-debug-toolbar.readthedocs.io/en/latest/installation.html
