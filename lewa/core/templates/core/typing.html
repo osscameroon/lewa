@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
     <section class="section">
         <div class="container">
@@ -20,13 +21,13 @@
                 </div>
                 <div class="level-right">
                     <div class="level-item">
-                        <span class="timer">01:45</span>
+                        <span class="timer" id="timer">01:45</span>
                     </div>
                 </div>
             </div>
             <!-- Progress Bars -->
             <div class="progress-container">
-                <div class="columns is-mobile is-vcentered">
+                <div class="columns is-mobile is-vcentered" id="div-accuracy">
                     <div class="column is-2">
                         <span class="has-text-weight-semibold">Accuracy</span>
                     </div>
@@ -37,7 +38,7 @@
                         <span class="has-text-weight-semibold">92%</span>
                     </div>
                 </div>
-                <div class="columns is-mobile is-vcentered">
+                <div class="columns is-mobile is-vcentered" id="div-speed">
                     <div class="column is-2">
                         <span class="has-text-weight-semibold">Speed</span>
                     </div>
@@ -78,7 +79,9 @@
                     </span>
                     <span>Hear Pronunciation</span>
                 </button>
-                <button id="reset-btn" class="button is-danger is-light">
+                <button id="reset-btn"
+                        class="button is-danger is-light"
+                        onclick="resetInput()">
                     <span class="icon">
                         <i class="fas fa-redo"></i>
                     </span>
@@ -91,13 +94,74 @@
                     <span>Next Lesson</span>
                 </button>
             </div>
-            <!-- Keyboard Placeholder -->
-            <div class="keyboard-placeholder box has-text-centered">
-                <p class="mb-3">
-                    <i class="fas fa-keyboard fa-3x"></i>
-                </p>
-                <p class="subtitle">Custom GACL Keyboard Will Appear Here</p>
+            <!-- Virtual Keyboard -->
+            <div class="box-mt-5">
+                <div id="virtual-keyboard" class="keyboard-container"></div>
             </div>
+            {{ writing_system.layout|json_script:"keyboard_layout_data" }}
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    const layoutElement = document.getElementById('keyboard_layout_data');
+                    if (!layoutElement) return;
+                    const layoutData = JSON.parse(layoutElement.textContent);
+                    const keyboardContainer = document.getElementById('virtual-keyboard');
+                    const inputField = document.getElementById('user-input');
+
+                    const createKey = (text, className, onClick) => {
+                        const btn = document.createElement('button');
+                        btn.className = `button key-btn ${className || ''}`;
+                        btn.innerHTML = text;
+                        btn.onclick = (e) => {
+                            e.preventDefault();
+                            onClick();
+                            inputField.focus();
+                        };
+                        return btn;
+                    };
+
+                    Object.keys(layoutData).sort().forEach(rowKey => {
+                        const rowDiv =document.createElement("div");
+                        rowDiv.className = "buttons is-centered mb-2"
+
+                        layoutData[rowKey].forEach(char => {
+                            const btn = document.createElement('button');
+                            btn.className = "button key-btn"
+                            btn.textContent = char;
+                            btn.onclick = () => {
+                                inputField.value += char;
+                                inputField.focus();
+                            };
+                            rowDiv.appendChild(btn);
+                        }
+                        );
+                        keyboardContainer.appendChild(rowDiv);
+
+                    });
+
+                    const funcRow = document.createElement("div");
+                    funcRow.className = "buttons is-centered mb-2";
+                    const backspaceBtn = createKey('<i class="fas fa-backspace"></i>', "is-warning", () => {
+                        inputField.value = inputField.value.slice(0, -1);
+                    });
+                    funcRow.appendChild(backspaceBtn);
+
+                    const spaceBtn = createKey("Space", "is-light space-key", () => {
+                        inputField.value += " ";
+                    });
+                    funcRow.appendChild(spaceBtn);
+
+                    const enterBtn = createKey('<i class="fas fa-level-down-alt fa-rotate-90"></i>', "is-success", () => {
+                        inputField.value += "\n";
+                    });
+                    funcRow.appendChild(enterBtn);
+
+                    keyboardContainer.appendChild(funcRow);
+                });
+            </script>
+            <style>
+                .keyboard-row { display: flex; gap: 5px;}
+                .key-btn { min-width: 45px;}
+            </style>
         </div>
     </section>
 {% endblock content %}
