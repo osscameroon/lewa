@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib.auth import get_user_model
 from .models import LewaData
 
 
@@ -41,3 +42,12 @@ def writing_systems(request, writing_system=None):
     data = LewaData.get_writing_systems()
 
     return render(request, "core/writing_systems.html", {"writing_systems": data})
+
+
+def leaderboard_view(request):
+    User = get_user_model()
+
+    # Fetch top 10 users, ordered by highest score first
+    leaders = User.objects.filter(is_active=True).order_by('-score')[:10]
+
+    return render(request, 'core/leaderboard.html', {'leaders': leaders})

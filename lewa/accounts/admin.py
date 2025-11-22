@@ -12,9 +12,14 @@ class CustomUserAdmin(UserAdmin):
     list_display = [
         "email",
         "username",
+        "score",
         "is_staff",
         "is_active",
     ]
+
+    fieldsets = UserAdmin.fieldsets + (
+        ('Gamification', {'fields': ('score',)}),
+    )
 
 
 admin.site.register(CustomUser, CustomUserAdmin)

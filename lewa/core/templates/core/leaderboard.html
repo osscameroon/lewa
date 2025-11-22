@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero is-african-theme-4 is-medium">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+        <div class="content is-large">
+            <h1 class="has-text-white">
+                <i class="fas fa-trophy"></i> Hall of Fame
+            </h1>
+            <p class="has-text-light">
+                Top learners contribute to <strong>preserve African Languages</strong> through their writing systems.
+            </p>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section class="section has-background-black-bis">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8-desktop is-10-tablet">
+        
+        <div class="card box has-background-secondary">
+          <div class="card-content p-0"> 
+            
+            <table class="table is-fullwidth is-hoverable has-background-transparent has-text-white">
+              <thead>
+                <tr>
+                  <th class="has-text-grey-light has-text-centered p-4">Rank</th>
+                  <th class="has-text-grey-light p-4">Learner</th>
+                  <th class="has-text-grey-light has-text-right p-4">Cowries 🐚</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for leader in leaders %}
+                <tr>
+                  
+                  <td class="has-text-centered is-vcentered is-size-5 p-4">
+                    {% if forloop.counter == 1 %}🥇
+                    {% elif forloop.counter == 2 %}🥈
+                    {% elif forloop.counter == 3 %}🥉
+                    {% else %}
+                      <span class="has-text-grey">#{{ forloop.counter }}</span>
+                    {% endif %}
+                  </td>
+
+                  <td class="is-vcentered p-4">
+                    <div class="is-flex is-align-items-center">
+                      <figure class="image is-32x32 mr-3">
+                         <div class="is-rounded is-flex is-justify-content-center is-align-items-center has-background-grey-dark has-text-white has-text-weight-bold leaderboard-avatar">
+                            {{ leader.username|slice:":1"|upper }}
+                         </div>
+                      </figure>
+                      
+                      <div>
+                        <span class="has-text-weight-bold has-text-white">{{ leader.username }}</span>
+                        {% if leader == request.user %}
+                          <span class="tag is-primary is-light is-small ml-2">You</span>
+                        {% endif %}
+                      </div>
+                    </div>
+                  </td>
+
+                  <td class="has-text-right is-vcentered p-4">
+                    <span class="tag is-medium has-text-weight-bold has-text-white leaderboard-score">
+                      {{ leader.score }} 🐚
+                    </span>
+                  </td>
+                </tr>
+                {% empty %}
+                <tr>
+                  <td colspan="3" class="has-text-centered p-6 has-text-grey">
+                    No scores yet. Start learning!
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+        </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
