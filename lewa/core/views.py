@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import LewaData
+from .models import LewaData, Score
 
 
 # Create your views here.
@@ -35,3 +35,8 @@ def writing_systems(request, writing_system=None):
     data = LewaData.get_writing_systems()
 
     return render(request, "core/writing_systems.html", {"writing_systems": data})
+
+def leaderboard_view(request):
+    scores_list = Score.objects.all()[:10]
+
+    return render(request, 'core/leaderboard.html', {'scores': scores_list})

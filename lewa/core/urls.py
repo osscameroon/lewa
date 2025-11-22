@@ -15,4 +15,5 @@ urlpatterns = [
         views.writing_systems,
         name="writing-systems",
     ),
+    path("leaderboard", views.leaderboard_view, name="leaderboard"),
 ]
