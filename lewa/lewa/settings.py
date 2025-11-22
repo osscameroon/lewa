@@ -171,6 +171,13 @@ STORAGES = {
     },
 }
 
+if DEBUG:
+    # In development, use the standard static storage (no hashing/compression)
+    # so you don't have to run 'collectstatic' every time you change CSS.
+    STORAGES["staticfiles"] = {
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+    }
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
@@ -214,10 +221,6 @@ ACCOUNT_UNIQUE_EMAIL = True  # Each email can only be used once
 ACCOUNT_USERNAME_MIN_LENGTH = 3  # Minimum username length
 # Email verification (set to "mandatory" for production)
 ACCOUNT_EMAIL_VERIFICATION = "none"  # Options: "none", "optional", "mandatory"
-
-# Login with either username or email
-ACCOUNT_AUTHENTICATION_METHOD = 'username_email' 
-ACCOUNT_EMAIL_REQUIRED = True
 
 # Social account providers configuration
 SOCIALACCOUNT_PROVIDERS = {
