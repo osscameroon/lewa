@@ -10,5 +10,5 @@ en = "The General Alphabet of Cameroon Languages is an orthographic system creat
 
 [layout]
 row0 = ["q", "w", "e", "ɛ", "r", "t", "y", "u", "i", "o", "ɔ", "p"]
-row1 = ["a", "s", "d", "f", "g", "h", "j", "k", "l", "ŋ"]
-row2 = ["z", "x", "c", "v", "b", "ɓ", "n", "m"]
+row1 = ["a", "s", "d", "ɗ", "f", "g", "h", "j", "k", "l", "ŋ"]
+row2 = ["z", "x", "c", "v", "b", "ɓ", "n", "ɲ", "m"]
