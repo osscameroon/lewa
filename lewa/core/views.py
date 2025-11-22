@@ -1,3 +1,4 @@
+"""Django views, you can find the templates at `templates/core/`."""
 from django.shortcuts import render
 from .models import LewaData
 
