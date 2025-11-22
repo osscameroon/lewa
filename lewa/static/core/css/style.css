@@ -1,5 +1,14 @@
+@font-face {
+    font-family: "nilus";
+    src: url("/static/core/fonts/Nilus_hint.ttf");
+}
+body {
+    font-family: "nilus", serif;
+}
 .hero.is-african-theme {
-    background: linear-gradient(135deg, #2c3e50 0%, #4a6491 100%);
+    background-image: url("/static/core/assets/lewa.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .language-card:hover {
     transform: translateY(-5px);
