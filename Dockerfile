@@ -11,7 +11,7 @@ RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --frozen --no-install-project --no-editable --no-dev --group prod
 
 # Copy the project into the intermediate image
-COPY . /app
+ADD ./lewa /app
 
 FROM python:3.13-slim-bookworm
 
