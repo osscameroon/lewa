@@ -9,19 +9,25 @@
                     <div class="level-item">
                         <div class="tags has-addons">
                             <span class="tag is-dark">Language</span>
-                            <span class="tag is-primary">Duala (GACL)</span>
+                            <span class="tag is-primary">  <select id="lang-select" onchange="resetSystem()">
+				<option value="">--Please select--</option>
+				<option value="apple">Apple</option>
+				<option value="banana">Banana</option>
+				<option value="cherry">Cherry</option>
+				<option value="date">Date</option>
+			    </select></span>
                         </div>
                     </div>
                     <div class="level-item">
                         <div class="tags has-addons">
                             <span class="tag is-dark">Lesson</span>
-                            <span class="tag is-info">3/12</span>
+                            <span id="lessons" class="tag is-info">3/12</span>
                         </div>
                     </div>
                 </div>
                 <div class="level-right">
                     <div class="level-item">
-                        <span class="timer" id="timer">01:45</span>
+                        <span class="timer" id="timer">00:00</span>
                     </div>
                 </div>
             </div>
@@ -32,10 +38,10 @@
                         <span class="has-text-weight-semibold">Accuracy</span>
                     </div>
                     <div class="column">
-                        <progress class="progress is-success" value="92" max="100">92%</progress>
+                        <progress class="progress is-success" value="0" max="100">0%</progress>
                     </div>
                     <div class="column is-1 has-text-right">
-                        <span class="has-text-weight-semibold">92%</span>
+                        <span class="has-text-weight-semibold">0%</span>
                     </div>
                 </div>
                 <div class="columns is-mobile is-vcentered" id="div-speed">
@@ -43,10 +49,10 @@
                         <span class="has-text-weight-semibold">Speed</span>
                     </div>
                     <div class="column">
-                        <progress class="progress is-info" value="65" max="100">65%</progress>
+                        <progress class="progress is-info" value="0" max="100">0%</progress>
                     </div>
                     <div class="column is-1 has-text-right">
-                        <span class="has-text-weight-semibold">18 WPM</span>
+                        <span class="has-text-weight-semibold">0 WPM</span>
                     </div>
                 </div>
             </div>
@@ -54,7 +60,7 @@
             <div class="box mt-5">
                 <div class="content is-large" id="lesson-text">
                     <!-- Should be Dynamically filled by JavaScript -->
-                    M̀bɔ́lɔ́ ńtɔ́ŋ́ ǹdém bò lòndó è sómbólá è bòlóbò.
+                    The quick brown fox jumps over the lazy dog.
                 </div>
             </div>
             <!-- User Input -->
@@ -79,15 +85,13 @@
                     </span>
                     <span>Hear Pronunciation</span>
                 </button>
-                <button id="reset-btn"
-                        class="button is-danger is-light"
-                        onclick="resetInput()">
+                <button id="reset-btn" class="button is-danger is-light" onclick="resetInput()">
                     <span class="icon">
                         <i class="fas fa-redo"></i>
                     </span>
                     <span>Reset</span>
                 </button>
-                <button id="next-btn" class="button is-success" disabled>
+                <button id="next-btn" class="button is-success" onclick="nextLesson()" disabled>
                     <span class="icon">
                         <i class="fas fa-arrow-right"></i>
                     </span>
@@ -98,70 +102,16 @@
             <div class="box-mt-5">
                 <div id="virtual-keyboard" class="keyboard-container"></div>
             </div>
+
             {{ writing_system.layout|json_script:"keyboard_layout_data" }}
-            <script>
-                document.addEventListener("DOMContentLoaded", () => {
-                    const layoutElement = document.getElementById('keyboard_layout_data');
-                    if (!layoutElement) return;
-                    const layoutData = JSON.parse(layoutElement.textContent);
-                    const keyboardContainer = document.getElementById('virtual-keyboard');
-                    const inputField = document.getElementById('user-input');
 
-                    const createKey = (text, className, onClick) => {
-                        const btn = document.createElement('button');
-                        btn.className = `button key-btn ${className || ''}`;
-                        btn.innerHTML = text;
-                        btn.onclick = (e) => {
-                            e.preventDefault();
-                            onClick();
-                            inputField.focus();
-                        };
-                        return btn;
-                    };
+            <script src="/static/core/js/keyboard.js"></script>
+	    <script src="/static/core/js/typing.js"></script>
 
-                    Object.keys(layoutData).sort().forEach(rowKey => {
-                        const rowDiv =document.createElement("div");
-                        rowDiv.className = "buttons is-centered mb-2"
-
-                        layoutData[rowKey].forEach(char => {
-                            const btn = document.createElement('button');
-                            btn.className = "button key-btn"
-                            btn.textContent = char;
-                            btn.onclick = () => {
-                                inputField.value += char;
-                                inputField.focus();
-                            };
-                            rowDiv.appendChild(btn);
-                        }
-                        );
-                        keyboardContainer.appendChild(rowDiv);
-
-                    });
-
-                    const funcRow = document.createElement("div");
-                    funcRow.className = "buttons is-centered mb-2";
-                    const backspaceBtn = createKey('<i class="fas fa-backspace"></i>', "is-warning", () => {
-                        inputField.value = inputField.value.slice(0, -1);
-                    });
-                    funcRow.appendChild(backspaceBtn);
-
-                    const spaceBtn = createKey("Space", "is-light space-key", () => {
-                        inputField.value += " ";
-                    });
-                    funcRow.appendChild(spaceBtn);
-
-                    const enterBtn = createKey('<i class="fas fa-level-down-alt fa-rotate-90"></i>', "is-success", () => {
-                        inputField.value += "\n";
-                    });
-                    funcRow.appendChild(enterBtn);
-
-                    keyboardContainer.appendChild(funcRow);
-                });
-            </script>
             <style>
                 .keyboard-row { display: flex; gap: 5px;}
                 .key-btn { min-width: 45px;}
             </style>
-        </div>
-    </section>
+                </div>
+            </section>
 {% endblock content %}
