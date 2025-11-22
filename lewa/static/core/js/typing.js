@@ -1,8 +1,8 @@
-const input = document.getElementById('user-input')
-const div_speed = document.getElementById('div-speed')
-const div_accuracy = document.getElementById('div-accuracy')
-const timer = document.getElementById('timer')
-const start = performance.now()
+const input = document.getElementById('user-input');
+const div_speed = document.getElementById('div-speed');
+const div_accuracy = document.getElementById('div-accuracy');
+const timer = document.getElementById('timer');
+let start = performance.now();
 
 function min(a, b) {
   return a < b ? a : b;
@@ -28,14 +28,16 @@ function elapsed()
     return performance.now() - start;
 }
 
+let updateLoopStarted = false;
+
 async function updateLoop(interval = 200) {
+    updateLoopStarted = true;
+    start = performance.now();
     while (true) {
 	timer.innerHTML = formatMsToMMSS(elapsed());
         await new Promise(resolve => setTimeout(resolve, interval));
     }
 }
-
-updateLoop();
 
 function formatMsToMMSS(ms) {
     const totalSeconds = Math.floor(ms / 1000);
@@ -60,12 +62,14 @@ function resetInput()
 }
 
 input.addEventListener('input', function (event) {
+    if (!updateLoopStarted) updateLoop();
     const wpm = Math.round((input.value.length * 60000) / elapsed());
     const wpmstr = wpm.toString();
-    let prog = Math.round(wpm/2);
-    if (prog>100) prog=100;
+    let prog = 100-2500/wpm;
+    if (wpm<=50) prog=wpm;
     agstr = document.getElementById("lesson-text").innerText;
-    let acc = Math.round(accuracy(agstr, input.value)*100).toString();
+    let acc = accuracy(agstr, input.value) * 100;
+    let accr = Math.round(acc).toString();
     div_speed.innerHTML = `<div class="column is-2">
                         <span class="has-text-weight-semibold">Speed</span>
                     </div>
@@ -79,9 +83,9 @@ input.addEventListener('input', function (event) {
                         <span class="has-text-weight-semibold">Accuracy</span>
                     </div>
                     <div class="column">
-                        <progress class="progress is-success" value="`+acc+`" max="100">`+acc+`%</progress>
+                        <progress class="progress is-success" value="`+acc.toString()+`" max="100">`+accr+`%</progress>
                     </div>
                     <div class="column is-1 has-text-right">
-                        <span class="has-text-weight-semibold">`+acc+`%</span>
+                        <span class="has-text-weight-semibold">`+accr+`%</span>
                     </div>`;
 });
