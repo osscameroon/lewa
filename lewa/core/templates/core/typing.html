@@ -96,9 +96,7 @@
             <div class="box-mt-5">
                 <div id="virtual-keyboard" class="keyboard-container"></div>
             </div>
-
             {{ writing_system.layout|json_script:"keyboard_layout_data" }}
-
             <script>
                 document.addEventListener("DOMContentLoaded", () => {
                     const layoutElement = document.getElementById('keyboard_layout_data');
@@ -164,11 +162,10 @@
                     keyboardContainer.appendChild(funcRow);
                 });
             </script>
-
             <style>
                 .keyboard-row { display: flex; gap: 5px;}
                 .key-btn { min-width: 45px;}
             </style>
-                </div>
-            </section>
+        </div>
+    </section>
 {% endblock content %}
