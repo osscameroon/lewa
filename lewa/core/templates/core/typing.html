@@ -9,7 +9,7 @@
                     <div class="level-item">
                         <div class="tags has-addons">
                             <span class="tag is-dark">Language</span>
-                            <span class="tag is-primary">Duala (GACL)</span>
+                            <span class="tag is-primary">{{ writing_system.info.name }} </span>
                         </div>
                     </div>
                     <div class="level-item">
@@ -79,7 +79,7 @@
                     </span>
                     <span>Hear Pronunciation</span>
                 </button>
-                <button id="reset-btn" class="button is-danger is-light" onclick="resetInput()">
+                <button id="reset-btn" class="button is-danger is-light">
                     <span class="icon">
                         <i class="fas fa-redo"></i>
                     </span>
@@ -106,6 +106,12 @@
                     const layoutData = JSON.parse(layoutElement.textContent);
                     const keyboardContainer = document.getElementById('virtual-keyboard');
                     const inputField = document.getElementById('user-input');
+
+                    const resetBtnTop = document.getElementById('reset-btn');
+                    resetBtnTop.addEventListener('click', () => {
+                        inputField.value = "";
+                        inputField.focus();
+                    });
 
                     const createKey = (text, className, onClick) => {
                         const btn = document.createElement('button');
