@@ -8,7 +8,7 @@ country_code = "cm"
 source = "https://en.wikipedia.org/wiki/General_Alphabet_of_Cameroon_Languages"
 en = "The General Alphabet of Cameroon Languages is an orthographic system created in the late 1970s for all Cameroonian languages. Consonant and vowel letters should not contain diacritics, though ⟨ẅ⟩ is a temporary exception. The alphabet has not been used widely enough for its one unique letter, a bilabial trill, to have been added to Unicode; in any case, that letter has now been replaced."
 
-[layout]
+[info.layout]
 row0 = ["q", "w", "e", "ɛ", "r", "t", "y", "u", "i", "o", "ɔ", "p"]
 row1 = ["a", "s", "d", "ɗ", "f", "g", "h", "j", "k", "l", "ŋ"]
 row2 = ["z", "x", "c", "v", "b", "ɓ", "n", "ɲ", "m"]
