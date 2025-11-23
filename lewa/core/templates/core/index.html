@@ -6,34 +6,18 @@
         <div class="hero-body">
             <div class="container has-text-centered">
                 <div class="content is-large">
-                    <h1 style="color: #FFFFFF; ">Learn African Writing Systems</h1>
-                    <p style="color: #FFFFFF; ">
-                        Rediscover your heritage through <b>GACL</b>, <b>Ge'ez</b> and other writing systems.
+                    <h1 class="has-text-white">Learn African Writing Systems</h1>
+                    <p class="has-text-white">
+                        Rediscover your heritage through <b>GACL</b>, <b>Ge'ez,</b> and other writing systems.
                     </p>
                 </div>
                 <div class="buttons is-centered mt-5">
-                    <div class="dropdown is-hoverable is-light is-large" id="typing-dropdown">
-                        <div class="dropdown-trigger">
-                            <button class="button is-light is-large" aria-haspopup="true" aria-controls="dropdown-menu">
-                                <span class="icon">
-                                    <i class="fas fa-keyboard"></i>
-                                </span>
-                                <span>Start Typing Practice</span>
-                                <span class="icon is-small">
-                                    <i class="fas fa-angle-down" aria-hidden="true"></i>
-                                </span>
-                            </button>
-                        </div>
-                        <div class="dropdown-menu" id="dropdown-menu" role="menu">
-                            <div class="dropdown-content">
-                                {% for system in all_systems %}
-                                <a href="{% url 'typing' %}?writing_system_code={{ system.info.name }}" class="dropdown-item">
-                                    {{ system.info.name }}
-                                </a>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </div>
+                    <a href="{% url 'typing' %}" class="button is-primary is-large">
+                        <span class="icon">
+                            <i class="fas fa-keyboard"></i>
+                        </span>
+                        <span>Start Typing Practice</span>
+                    </a>
                     <a href="{% url 'pronunciation' %}" class="button is-light is-large">
                         <span class="icon">
                             <i class="fas fa-volume-up"></i>
@@ -41,9 +25,6 @@
                         <span>Learn Pronunciation</span>
                     </a>
                 </div>
-                <div class="content is-large">
-		    <p style="font-size: 60%; color=#7F7F7F; ">Background image adapted from <a href="https://commons.wikimedia.org/wiki/File:Arabic-script_28.png">the work</a> by BNI-IZNASEN.</p>
-		</div>
             </div>
         </div>
     </section>
@@ -56,10 +37,10 @@
                         <div class="content is-medium">
                             <h1>Why African Writing Systems Matter</h1>
                             <p>
-                                African languages hold more than letters, <span class="has-text-weight-bold has-text-primary">history, art, and identity</span>.
+                                African languages hold more than letters, <span class="has-text-weight-bold has-text-primary">they carry history, art, and identity</span>.
                             </p>
                             <p>
-                                The <strong>African writing systems</strong> empowers Africans to write their languages accurately,
+                                The <strong>African writing systems</strong> empower Africans to write their languages accurately,
                                 preserving sounds and meanings often lost in colonial scripts.
                             </p>
                         </div>
@@ -120,7 +101,7 @@
         </div>
     </section>
     <!-- Features Section -->
-    <section class="hero is-medium has-background-light" id="features">
+    <section class="hero is-medium" id="features">
         <div class="hero-body">
             <div class="container">
                 <h2 class="title is-2 has-text-centered has-text-dark mb-6">How You'll Learn</h2>
@@ -220,7 +201,6 @@
             </div>
         </div>
     </section>
-    <hr />
     <!-- Call-to-Action -->
     <section class="hero is-medium" id="call">
         <div class="hero-body">

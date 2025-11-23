@@ -9,7 +9,7 @@
                     <div class="level-item">
                         <div class="tags has-addons">
                             <span class="tag is-dark">Language</span>
-                            <span class="tag is-primary">{{ writing_system.info.name }} </span>
+                            <span class="tag is-primary">{{ writing_system.info.name }}</span>
                         </div>
                     </div>
                     <div class="level-item">
@@ -163,6 +163,11 @@
                 });
             </script>
             <style>
+                body {
+                    background-image: none !important;
+                    background-color: var(--bg-deep) !important;
+                }
+                
                 .keyboard-row { display: flex; gap: 5px;}
                 .key-btn { min-width: 45px;}
             </style>
