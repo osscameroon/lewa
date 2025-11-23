@@ -48,7 +48,8 @@ def writing_systems(request, writing_system=None):
 
     return render(request, "core/writing_systems.html", {"writing_systems": data})
 
+
 def leaderboard_view(request):
     scores_list = Score.objects.all()[:10]
 
-    return render(request, 'core/leaderboard.html', {'scores': scores_list})
+    return render(request, "core/leaderboard.html", {"scores": scores_list})

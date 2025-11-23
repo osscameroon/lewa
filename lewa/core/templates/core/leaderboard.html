@@ -1,73 +1,49 @@
 {% extends "base.html" %}
-
 {% block content %}
-<section class="section">
-    <div class="container is-max-desktop">
-        
-        <div class="has-text-centered mb-6">
-            <h1 class="title is-2">Leaderboard</h1>
-            <p class="subtitle is-5 has-text-grey mt-5">Top scores from the community</p>
-        </div>
-
-        <div class="box">
-            <div class="table-container">
-                <table class="table is-fullwidth is-striped is-hoverable">
-                    <thead>
-                        <tr>
-                            <th class="has-text-centered" style="width: 10%;">Rank</th>
-                            <th>User</th>
-                            <th class="has-text-right">Points</th>
-                            <th class="has-text-right">Speed</th>
-                            <th class="has-text-right">Accuracy</th>
-                            <th class="has-text-right" style="width: 20%;">Date</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for score in scores %}
-                        <tr>
-                            <td class="has-text-centered has-text-weight-bold">
-                                #{{ forloop.counter }}
-                            </td>
-                            
-                            <td class="has-text-primary has-text-weight-medium">
-                                {{ score.user.username }}
-                            </td>
-                            
-                            <td class="has-text-right has-text-weight-bold">
-                                {{ score.points }}
-                            </td>
-
-                            <td class="has-text-right has-text-weight-bold">
-                                {{ score.speed }}
-                            </td>
-
-                            <td class="has-text-right has-text-weight-bold">
-                                {{ score.accuracy_percent }}%
-                            </td>
-                            
-                            <td class="has-text-right has-text-grey-light is-size-7">
-                                {{ score.date|date:"M d, Y" }}
-                            </td>
-                        </tr>
-                        {% empty %}
-                        <tr>
-                            <td colspan="5" class="has-text-centered py-6">
-                                <p class="is-size-5 has-text-grey-light">No scores yet.</p>
-                                <a href="{% url 'home' %}" class="button is-primary is-small mt-2">
-                                    Be the first to play!
-                                </a>
-                            </td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="has-text-centered mb-6">
+                <h1 class="title is-2">Leaderboard</h1>
+                <p class="subtitle is-5 has-text-grey mt-5">Top scores from the community</p>
+            </div>
+            <div class="box">
+                <div class="table-container">
+                    <table class="table is-fullwidth is-striped is-hoverable">
+                        <thead>
+                            <tr>
+                                <th class="has-text-centered" style="width: 10%;">Rank</th>
+                                <th>User</th>
+                                <th class="has-text-right">Points</th>
+                                <th class="has-text-right">Speed</th>
+                                <th class="has-text-right">Accuracy</th>
+                                <th class="has-text-right" style="width: 20%;">Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for score in scores %}
+                                <tr>
+                                    <td class="has-text-centered has-text-weight-bold">#{{ forloop.counter }}</td>
+                                    <td class="has-text-primary has-text-weight-medium">{{ score.user.username }}</td>
+                                    <td class="has-text-right has-text-weight-bold">{{ score.points }}</td>
+                                    <td class="has-text-right has-text-weight-bold">{{ score.speed }}</td>
+                                    <td class="has-text-right has-text-weight-bold">{{ score.accuracy_percent }}%</td>
+                                    <td class="has-text-right has-text-grey-light is-size-7">{{ score.date|date:"M d, Y" }}</td>
+                                </tr>
+                            {% empty %}
+                                <tr>
+                                    <td colspan="5" class="has-text-centered py-6">
+                                        <p class="is-size-5 has-text-grey-light">No scores yet.</p>
+                                        <a href="{% url 'home' %}" class="button is-primary is-small mt-2">Be the first to play!</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="has-text-centered mt-5">
+                <a href="/" class="button is-ghost">← Back to Home</a>
             </div>
         </div>
-        
-        <div class="has-text-centered mt-5">
-            <a href="/" class="button is-ghost">← Back to Home</a>
-        </div>
-
-    </div>
-</section>
+    </section>
 {% endblock %}

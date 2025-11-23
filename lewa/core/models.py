@@ -1,4 +1,5 @@
 """Language/writing system data"""
+
 from django.db import models
 from django.conf import settings
 import pathlib
@@ -41,8 +42,8 @@ class LewaData:
             with open(im_file, "rb") as f:
                 data = tomllib.load(f)
 
-
             yield data["info"]
+
 
 class Score(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -52,10 +53,10 @@ class Score(models.Model):
     date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        ordering = ['-points']
+        ordering = ["-points"]
 
     def __str__(self):
         return f"{self.user.username} - {self.points}"
-    
+
     def accuracy_percent(self):
         return int(self.accuracy * 100)
