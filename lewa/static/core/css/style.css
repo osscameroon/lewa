@@ -1,10 +1,4 @@
-@font-face {
-    font-family: 'NotoSans';
-    src: url('../fonts/NotoSans-variable.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap');
 
 :root {
     --bg-deep: #0a0a0f;
@@ -19,7 +13,7 @@
     --glass-surface: rgba(19, 19, 26, 0.7);
     --glass-blur: 16px;
 
-    --font-stack: "NotoSans", system-ui
+    --font-stack: "Noto Sans", system-ui
 }
 
 ::selection {
