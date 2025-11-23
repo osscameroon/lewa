@@ -27,8 +27,8 @@
                         <div class="dropdown-menu" id="dropdown-menu" role="menu">
                             <div class="dropdown-content">
                                 {% for system in all_systems %}
-                                <a href="{% url 'typing' %}?writing_system_code={{ system.info.name }}" class="dropdown-item">
-                                    {{ system.info.name }}
+                                <a href="{% url 'typing' %}/{{ system.name }}" class="dropdown-item">
+                                    {{ system.name }}
                                 </a>
                                 {% endfor %}
                             </div>
