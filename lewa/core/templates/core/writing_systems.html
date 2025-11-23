@@ -34,22 +34,22 @@
                             <div class="card-content">
                                 <div class="media">
                                     <div class="media-left">
-                                        <i class="fi fi-{{ ws.country_code }}"></i>
+                                        <i class="fi fi-{{ ws.info.country_code }}"></i>
                                     </div>
                                     <div class="media-content">
-                                        <p class="title is-4">{{ ws.name }}</p>
-                                        <p class="subtitle is-6 is-italic">{{ ws.script_type|capfirst }}</p>
+                                        <p class="title is-4">{{ ws.info.name }}</p>
+                                        <p class="subtitle is-6 is-italic">{{ ws.info.script_type|capfirst }}</p>
                                     </div>
                                 </div>
                                 <div class="content">
-                                    {{ ws.description.en }}
-                                    <a href="{{ ws.description.source }}" target="_blank"><i>[source]</i></a>
+                                    {{ ws.info.description.en }}
+                                    <a href="{{ ws.info.description.source }}" target="_blank"><i>[source]</i></a>
                                 </div>
                             </div>
                             <div class="card-footer">
                                 <span class="card-footer-item">Languages:</span>
                                 <div class="card-footer-item">
-                                    {% for lang in ws.languages %}
+                                    {% for lang in ws.info.languages %}
                                         <a class="tag" href="{% url 'languages' language=lang %}">{{ lang }}</a>&nbsp;
                                     {% endfor %}
                                 </div>
