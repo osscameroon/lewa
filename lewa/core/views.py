@@ -1,4 +1,5 @@
 """Django views, you can find the templates at `templates/core/`."""
+
 from django.shortcuts import render
 from .models import LewaData, Score
 
@@ -6,11 +7,7 @@ from .models import LewaData, Score
 # Create your views here.
 def index(request):
     all_systems = list(LewaData.get_writing_systems())
-    return render(
-        request,
-        "core/index.html", 
-        {"all_systems": all_systems}
-    )
+    return render(request, "core/index.html", {"all_systems": all_systems})
 
 
 def about(request):
@@ -51,7 +48,8 @@ def writing_systems(request, writing_system=None):
 
     return render(request, "core/writing_systems.html", {"writing_systems": data})
 
+
 def leaderboard_view(request):
     scores_list = Score.objects.all()[:10]
 
-    return render(request, 'core/leaderboard.html', {'scores': scores_list})
+    return render(request, "core/leaderboard.html", {"scores": scores_list})

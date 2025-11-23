@@ -216,7 +216,7 @@ ACCOUNT_USERNAME_MIN_LENGTH = 3  # Minimum username length
 ACCOUNT_EMAIL_VERIFICATION = "none"  # Options: "none", "optional", "mandatory"
 
 # Login with either username or email
-ACCOUNT_AUTHENTICATION_METHOD = 'username_email' 
+ACCOUNT_AUTHENTICATION_METHOD = "username_email"
 ACCOUNT_EMAIL_REQUIRED = True
 
 # Social account providers configuration
@@ -239,7 +239,9 @@ SOCIALACCOUNT_PROVIDERS = {
 }
 
 # Social account settings
-SOCIALACCOUNT_AUTO_SIGNUP = True  # Automatically create user account on first Google login
+SOCIALACCOUNT_AUTO_SIGNUP = (
+    True  # Automatically create user account on first Google login
+)
 SOCIALACCOUNT_EMAIL_REQUIRED = True  # Require email from social providers
 SOCIALACCOUNT_EMAIL_VERIFICATION = "none"  # Options: "none", "optional", "mandatory"
 SOCIALACCOUNT_QUERY_EMAIL = True  # Request email from provider
