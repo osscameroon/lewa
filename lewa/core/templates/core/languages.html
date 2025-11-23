@@ -16,6 +16,33 @@
     <section class="section">
         <div class="container">
             <h2 class="title is-3 has-text-centered mb-6">African Languages</h2>
+            <div class="level">
+                <div class="level-left">
+                    <form class="field has-addons" role="search" action="" method="get">
+                        <div class="control">
+                            <input class="input"
+                                   type="search"
+                                   name="q"
+                                   placeholder="Search languages, scripts, countries..."
+                                   value="{{ q|default:'' }}">
+                        </div>
+                        <div class="control">
+                            <button class="button is-info" type="submit" aria-label="Search">
+                                <span class="icon"><i class="fas fa-search"></i></span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="level-right">
+                    {% if q %}
+                        <div class="has-text-right">
+                            <p class="is-size-7">
+                                Showing <strong>{{ total }}</strong> result{{ total|pluralize }} for "<em>{{ q }}</em>"
+                            </p>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
             <div class="box has-background-secondary mt-6">
                 <div class="content">
                     <h3 class="title is-4">About African Languages</h3>
@@ -26,53 +53,59 @@
                 </div>
             </div>
             <div class="columns is-multiline">
-                {% for lang in languages %}
-                    <div class="column is-4">
-                        <div class="card language-card">
-                            <div class="card-content">
-                                <div class="media">
-                                    <div class="media-left">
-                                        <i class="fi fi-{{ lang.country_code }}"></i>
+                {% if languages %}
+                    {% for lang in languages %}
+                        <div class="column is-4">
+                            <div class="card language-card">
+                                <div class="card-content">
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <i class="fi fi-{{ lang.country_code }}"></i>
+                                        </div>
+                                        <div class="media-content">
+                                            <p class="title is-4">{{ lang.name }}</p>
+                                            <p class="subtitle is-6">{{ lang.short.en }}</p>
+                                        </div>
                                     </div>
-                                    <div class="media-content">
-                                        <p class="title is-4">{{ lang.name }}</p>
-                                        <p class="subtitle is-6">{{ lang.short.en }}</p>
+                                    <div class="content">
+                                        {{ lang.description.en }}
+                                        <a href="{{ lang.description.source }}" target="_blank"><i>[source]</i></a>
                                     </div>
                                 </div>
-                                <div class="content">
-                                    {{ lang.description.en }}
-                                    <a href="{{ lang.description.source }}" target="_blank"><i>[source]</i></a>
+                                <div class="card-footer">
+                                    <span class="card-footer-item">Writing systems:</span>
+                                    <div class="card-footer-item">
+                                        {% for ws in lang.writing_systems %}
+                                            <a class="tag" href="{% url 'writing-systems' writing_system=ws %}">{{ ws }}</a>&nbsp;
+                                        {% endfor %}
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="card-footer">
-                                <span class="card-footer-item">Writing systems:</span>
-                                <div class="card-footer-item">
-                                    {% for ws in lang.writing_systems %}
-                                        <a class="tag" href="{% url 'writing-systems' writing_system=ws %}">{{ ws }}</a>&nbsp;
-                                    {% endfor %}
+                                <div class="card-footer">
+                                    <a class="card-footer-item">
+                                        <span class="content is-small">
+                                            <i class="fa fa-volume-up"></i>&nbsp;
+                                            Learn to Speak /&nbsp;
+                                            <i class="fa fa-ear-listen"></i>&nbsp;
+                                            Listen
+                                        </span>
+                                    </a>
+                                    <a class="card-footer-item">
+                                        <span class="content is-small">
+                                            <i class="fa fa-font"></i>&nbsp;
+                                            Learn to Type /&nbsp;
+                                            <i class="fa fa-volume-up"></i>&nbsp;
+                                            Read
+                                        </span>
+                                    </a>
                                 </div>
-                            </div>
-                            <div class="card-footer">
-                                <a class="card-footer-item">
-                                    <span class="content is-small">
-                                        <i class="fa fa-volume-up"></i>&nbsp;
-                                        Learn to Speak /&nbsp;
-                                        <i class="fa fa-ear-listen"></i>&nbsp;
-                                        Listen
-                                    </span>
-                                </a>
-                                <a class="card-footer-item">
-                                    <span class="content is-small">
-                                        <i class="fa fa-font"></i>&nbsp;
-                                        Learn to Type /&nbsp;
-                                        <i class="fa fa-volume-up"></i>&nbsp;
-                                        Read
-                                    </span>
-                                </a>
                             </div>
                         </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="column">
+                        <div class="notification is-warning">No languages matched your search. Try different keywords.</div>
                     </div>
-                {% endfor %}
+                {% endif %}
             </div>
         </div>
     </section>
