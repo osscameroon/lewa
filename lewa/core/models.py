@@ -1,4 +1,5 @@
 """Language/writing system data"""
+
 # from django.db import models
 from django.conf import settings
 import pathlib
@@ -9,7 +10,7 @@ import tomllib
 class LewaData:
     @classmethod
     def get_languages(cls):
-        """ Gets languages. Yields the "info" section of tomllib parsed data. """
+        """Gets languages. Yields the "info" section of tomllib parsed data."""
         data_dir = pathlib.Path(settings.LEWA_DATA_DIR / "languages")
 
         for lang_file in data_dir.iterdir():
@@ -27,7 +28,7 @@ class LewaData:
 
     @classmethod
     def get_writing_systems(cls):
-        """ Gets writing systems. Yields tomllib parsed data. """
+        """Gets writing systems. Yields tomllib parsed data."""
         data_dir = pathlib.Path(settings.LEWA_DATA_DIR / "writing_systems")
 
         for im_file in data_dir.iterdir():

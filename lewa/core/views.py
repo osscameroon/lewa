@@ -1,4 +1,5 @@
 """Django views, you can find the templates at `templates/core/`."""
+
 from django.shortcuts import render
 from .models import LewaData
 
@@ -6,11 +7,7 @@ from .models import LewaData
 # Create your views here.
 def index(request):
     all_systems = list(LewaData.get_writing_systems())
-    return render(
-        request,
-        "core/index.html", 
-        {"all_systems": all_systems}
-    )
+    return render(request, "core/index.html", {"all_systems": all_systems})
 
 
 def about(request):
@@ -22,7 +19,7 @@ def about(request):
 
 def typing(request, writing_system_code="GACL"):
     all_systems = list(LewaData.get_writing_systems())
-    writing_system_code = request.GET.get('writing_system_code')
+    writing_system_code = request.GET.get("writing_system_code")
     if writing_system_code:
         current_system = next(
             (
