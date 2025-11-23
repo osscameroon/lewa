@@ -38,7 +38,7 @@ body {
     background-color: var(--bg-deep);
     background-image: 
         linear-gradient(to bottom, rgba(10, 10, 15, 0.85), rgba(10, 10, 15, 0.95)),
-        url('../img/bg-pattern.jpg');
+        url('../assets/bg-pattern.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
