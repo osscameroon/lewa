@@ -180,3 +180,36 @@ h1, h2, h3, h4, h5, h6,
     transform: translateY(2px);
     box-shadow: none;
 }
+
+/* Accessibility: skip link */
+.skip-to-content {
+    position: absolute;
+    left: -999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+.skip-to-content:focus {
+    left: 1rem;
+    top: 1rem;
+    width: auto;
+    height: auto;
+    padding: 0.5rem 1rem;
+    background: rgba(255,255,255,0.06);
+    border-radius: 6px;
+    z-index: 9999;
+}
+
+/* Hero overlay for improved readability */
+.hero.is-african-theme .hero-body {
+    background: linear-gradient(0deg, rgba(10,10,15,0.6), rgba(10,10,15,0.2));
+    padding: 4rem 0;
+}
+
+/* Footer tweaks */
+.footer a { color: var(--text-muted); }
+.footer a:hover { color: var(--african-gold); }
+
+/* Container for main content spacing */
+main#content { padding-bottom: 3rem; }

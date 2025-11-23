@@ -1,7 +1,7 @@
 {% extends "_base.html" %}
 {% block body %}
     <!-- Navigation Bar -->
-    <nav class="navbar is-dark">
+    <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
         <div class="container">
             <div class="navbar-brand">
                 <a class="navbar-item" href="/">
@@ -40,24 +40,30 @@
                         <a class="navbar-item" href="{% url 'languages' %}">Languages</a>
                         <a class="navbar-item" href="{% url 'leaderboard' %}">Leaderboard</a>
                         <a class="navbar-item" href="{% url 'account_login' %}">Login</a>
-                        <a class="navbar-item button is-primary"
-                           href="{% url 'account_signup' %}">Sign Up</a>
+                        <div class="navbar-item ">
+                            <a class="button is-primary" href="{% url 'account_signup' %}">Sign Up</a>
+                        </div>
                     {% endif %}
                 </div>
             </div>
         </div>
     </nav>
     {% if messages %}
-        {% for message in messages %}
-            {% with l=message.level %}
-                <div class="notification is-{% if l == 10 or l == 20 %}info{% elif l == 25 %}primary{% elif l == 30 %}warning{% elif l == 40 %}danger{% else %}secondary{% endif %}">
-                    {{ message }}
-                </div>
-            {% endwith %}
-        {% endfor %}
+        <div class="container mt-4">
+            {% for message in messages %}
+                {% with l=message.level %}
+                    <div class="notification is-{% if l == 10 or l == 20 %}info{% elif l == 25 %}primary{% elif l == 30 %}warning{% elif l == 40 %}danger{% else %}secondary{% endif %}">
+                        {{ message }}
+                    </div>
+                {% endwith %}
+            {% endfor %}
+        </div>
     {% endif %}
-    {% block content %}
-    {% endblock content %}
+
+    <main id="content" role="main">
+        {% block content %}
+        {% endblock content %}
+    </main>
     <!-- Footer -->
     <footer class="footer has-background-dark has-text-white">
         <div class="content has-text-centered">
