@@ -1,58 +1,164 @@
-@font-face {
-    font-family: "nilus";
-    src: url("/static/core/fonts/Nilus_hint.ttf");
-}
-body {
-    font-family: "nilus", serif;
-}
-.hero.is-african-theme {
-    background-image: url("/static/core/assets/lewa.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.language-card:hover {
-    transform: translateY(-5px);
-    transition: transform 0.3s ease;
-}
-.feature-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: #48c774;
-}
-.title.is-underline {
-    border-bottom: 3px solid #48c774;
-    display: inline-block;
-    padding-bottom: 5px;
-}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap');
+
 :root {
-      --african-purple: #5D3FD3;  /* Primary brand color */
-      --african-gold: #FFD700;    /* Accent */
-    }
-    .hero-about {
-      background: linear-gradient(135deg, var(--african-purple), #1E90FF);
-    }
-    .gacl-badge {
-      border: 2px solid var(--african-gold);
-      border-radius: 8px;
-    }
-    .cultural-icon {
-      color: var(--african-purple);
-    }
-.tab-content {
-      display: none;
-    }
-    .tab-content.is-active {
-      display: block;
-    }
-    .hero.is-african-theme-2 {
-      background: linear-gradient(135deg, var(--african-purple), #4B0082);
-    }
-    .hero.is-african-theme-3 {
-    background: linear-gradient(135deg, #5D3FD3 0%, #1E3F20 100%);
+    --bg-deep: #0a0a0f;
+    --bg-soft: #13131a;
+    --african-purple: #5D3FD3;        /* Primary Brand Color */
+    --african-gold: #FFD700;          /* Accent Gold */
+    --indigo: #4B0082;
+    --text-main: #ffffff;
+    --text-muted: #94a3b8;
+    
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-surface: rgba(19, 19, 26, 0.7);
+    --glass-blur: 16px;
+
+    --font-stack: "Noto Sans", system-ui
 }
-    .hero.is-african-theme-4 {
-    background: linear-gradient(135deg, #2A0845 0%, #0F2923 100%);
+
+::selection {
+    background: var(--african-gold);
+    color: var(--bg-deep);
 }
+
+html, body {
+    background-color: var(--bg-deep);
+    color: var(--text-main);
+    font-family: var(--font-stack);
+    min-height: 100vh;
+}
+
+body {
+    background-color: var(--bg-deep);
+    background-image: 
+        linear-gradient(to bottom, rgba(10, 10, 15, 0.85), rgba(10, 10, 15, 0.95)),
+        url('../assets/bg-pattern.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+h1, h2, h3, h4, h5, h6, 
+.title, .subtitle, .navbar-brand, .button {
+    font-family: var(--font-stack);
+    letter-spacing: -0.01em;
+}
+
+.title { color: var(--text-main) !important; }
+.subtitle { color: var(--text-muted) !important; }
+
+.has-text-light { color: var(--text-muted) !important; }
+.has-text-white { color: var(--text-main) !important; }
+.has-text-primary { color: var(--african-purple) !important; }
+.has-text-warning { color: var(--african-gold) !important; }
+.has-text-gold { color: var(--african-gold) !important; }
+
+.navbar {
+    background-color: var(--glass-surface) !important;
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border-bottom: 1px solid var(--glass-border);
+}
+.navbar-item, .navbar-link {
+    color: var(--text-main) !important;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+.navbar-item:hover, .navbar-link:hover {
+    background-color: transparent !important;
+    color: var(--african-gold) !important;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+.navbar-dropdown {
+    background-color: var(--bg-soft) !important;
+    border: 1px solid var(--glass-border);
+    border-top: 2px solid var(--african-gold);
+}
+
+.box, .card {
+    background-color: var(--bg-soft);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.button {
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    font-family: var(--font-stack);
+}
+
+.button.is-primary {
+    background-color: var(--african-purple);
+    border-color: transparent;
+    color: white;
+}
+
+.button.is-primary:hover {
+    background-color: #4a32a8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(93, 63, 211, 0.4);
+}
+
+.button.is-primary.is-outlined {
+    background-color: transparent;
+    border-color: var(--african-gold);
+    color: var(--african-gold);
+}
+
+.button.is-primary.is-outlined:hover {
+    background-color: var(--african-gold);
+    color: var(--bg-deep);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+}
+
+.button.is-gold {
+    background-color: var(--african-gold);
+    color: var(--bg-deep);
+    border: none;
+}
+.button.is-gold:hover {
+    background-color: #e6c200;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+}
+
+.input, .textarea, .select select {
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--glass-border);
+    color: var(--text-main);
+    border-radius: 8px;
+    font-family: var(--font-stack);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.input::placeholder { color: rgba(255, 255, 255, 0.3); }
+
+.input:focus, .textarea:focus, .select select:focus {
+    border-color: var(--african-gold);
+    box-shadow: 0 0 0 1px var(--african-gold);
+}
+
+.auth-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 3.25rem);
+    padding: 1rem;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 2.5rem;
+    background: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 2px solid var(--african-gold);
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
 .keyboard-container {
     background-color: var(--bg-soft);
     border: 1px solid var(--glass-border);
@@ -67,6 +173,7 @@ body {
 .key-btn:hover {
     background-color: #353542;
     color: var(--african-gold);
+    border-color: var(--african-gold);
     transform: translateY(-2px);
 }
 .key-btn:active {
