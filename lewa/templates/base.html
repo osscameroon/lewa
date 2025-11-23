@@ -24,6 +24,26 @@
                 </a>
             </div>
             <div class="navbar-menu" id="navbarMenu">
+                <div class="navbar-start">
+                    <form class="navbar-item"
+                          role="search"
+                          action="{% url 'languages' %}"
+                          method="get">
+                        <div class="field has-addons">
+                            <div class="control">
+                                <input class="input"
+                                       type="search"
+                                       name="q"
+                                       placeholder="Search languages, scripts...">
+                            </div>
+                            <div class="control">
+                                <button class="button is-info" type="submit" aria-label="Search">
+                                    <span class="icon"><i class="fas fa-search"></i></span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
                 <div class="navbar-end">
                     {% if user.is_authenticated %}
                         <div class="navbar-item has-dropdown is-hoverable">
@@ -59,7 +79,6 @@
             {% endfor %}
         </div>
     {% endif %}
-
     <main id="content" role="main">
         {% block content %}
         {% endblock content %}

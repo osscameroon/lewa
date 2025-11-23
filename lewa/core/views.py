@@ -38,9 +38,36 @@ def pronunciation(request):
 
 
 def languages(request, language=None):
-    data = LewaData.get_languages()
+    # Support search via ?q=term
+    q = (request.GET.get("q") or "").strip()
+    data = list(LewaData.get_languages())
 
-    return render(request, "core/languages.html", {"languages": data})
+    if q:
+        q_lower = q.lower()
+
+        def matches(lang):
+            # search common fields: name, short English, description English, country, country_code, writing systems
+            name = str(lang.get("name", "")).lower()
+            short = str((lang.get("short") or {}).get("en", "")).lower()
+            desc = str((lang.get("description") or {}).get("en", "")).lower()
+            country = str(lang.get("country", "")).lower()
+            country_code = str(lang.get("country_code", "")).lower()
+            writing_systems = " ".join(lang.get("writing_systems", [])).lower()
+
+            return (
+                q_lower in name
+                or q_lower in short
+                or q_lower in desc
+                or q_lower in country
+                or q_lower in country_code
+                or q_lower in writing_systems
+            )
+
+        filtered = [l for l in data if matches(l)]
+    else:
+        filtered = data
+
+    return render(request, "core/languages.html", {"languages": filtered, "q": q, "total": len(filtered)})
 
 
 def writing_systems(request, writing_system=None):
