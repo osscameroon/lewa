@@ -1,7 +1,7 @@
 lewa
 ===
 
-![Screenshot From 2025-05-13 21-36-44](https://github.com/user-attachments/assets/4b593e17-916f-4854-b68f-67f8a404a47f)
+![Screenshot From 2025-11-23 18-50-15](https://github.com/user-attachments/assets/f3e291f0-14ec-452b-af80-b709965a6c7f)
 
 A platform to learn African writing systems.
 
