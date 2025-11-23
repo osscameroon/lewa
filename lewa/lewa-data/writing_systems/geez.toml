@@ -8,7 +8,7 @@ country_code = "et"
 source = "https://en.wikipedia.org/wiki/Ge%CA%BDez"
 en = "Geʽez is an ancient South Semitic language. The language originates from what is now Ethiopia and Eritrea. Today, Geʽez is used as the main liturgical language of the Ethiopian Orthodox Tewahedo Church, the Eritrean Orthodox Tewahedo Church, the Ethiopian Catholic Church, the Eritrean Catholic Church, and the Beta Israel Jewish community. Hawulti Obelisk is an ancient pre-Aksumite obelisk located in Matara, Eritrea."
 
-[layout]
+[info.layout]
 row0 = ["ሀ", "ለ", "ሐ", "መ", "ሠ", "ረ", "ሰ", "ሸ", "ቀ", "በ", "ተ",]
 row1 = ["ቸ", "ኀ", "ነ", "ኘ", "አ", "ከ", "ኸ", "ወ", "ዐ", "ዘ", "ዠ",]
 row2 = ["የ", "ደ", "ጀ", "ገ", "ጠ", "ጨ", "ጰ", "ጸ", "ፀ", "ፈ", "ፐ"]

@@ -20,15 +20,15 @@ def about(request):
     )
 
 
-def typing(request, writing_system_code="GACL"):
+def typing(request, writing_system_code=None):
     all_systems = list(LewaData.get_writing_systems())
-    writing_system_code = request.GET.get('writing_system_code')
+
     if writing_system_code:
         current_system = next(
             (
                 writing_system
                 for writing_system in all_systems
-                if writing_system["info"]["name"] == writing_system_code
+                if writing_system["name"] == writing_system_code
             )
         )
     else:
