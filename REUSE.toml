@@ -1,0 +1,9 @@
+version = 1
+
+# Computer generated file.
+[[annotations]]
+path = [
+    "uv.lock",
+]
+SPDX-FileCopyrightText = "2025 Brady Fomegne and contributors"
+SPDX-License-Identifier = "MPL-2.0"

@@ -1,8 +1,14 @@
+# SPDX-FileCopyrightText: 2025 Brady Fomegne and contributors
+#
+# SPDX-License-Identifier: MPL-2.0
+
 [project]
 name = "lewa"
 version = "0.1.0"
 description = "A platform to learn African writing systems."
 readme = "README.md"
+license = "MPL-2.0"
+license-files = ["LICENSES/*"]
 requires-python = ">=3.11"
 dependencies = [
     "crispy-bulma>=0.12.0",
