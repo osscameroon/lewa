@@ -107,7 +107,7 @@ docker compose exec lewa ./entrypoint.sh shell -c \"import core.dummy_data\"
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome! See [CONTRIBUTING.md](https://github.com/wsvincent/lithium/blob/master/CONTRIBUTING.md).
+Contributions, issues and feature requests are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## ⭐️ Support
 
