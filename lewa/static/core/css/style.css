@@ -213,3 +213,8 @@ h1, h2, h3, h4, h5, h6,
 
 /* Container for main content spacing */
 main#content { padding-bottom: 3rem; }
+
+/* Handle tabs */
+.tab-content:not(.is-active) {
+    display: none;
+}

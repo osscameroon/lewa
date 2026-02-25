@@ -63,11 +63,15 @@ def languages(request, language=None):
                 or q_lower in writing_systems
             )
 
-        filtered = [l for l in data if matches(l)]
+        filtered = [lang for lang in data if matches(lang)]
     else:
         filtered = data
 
-    return render(request, "core/languages.html", {"languages": filtered, "q": q, "total": len(filtered)})
+    return render(
+        request,
+        "core/languages.html",
+        {"languages": filtered, "q": q, "total": len(filtered)},
+    )
 
 
 def writing_systems(request, writing_system=None):
