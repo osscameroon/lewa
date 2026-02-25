@@ -63,7 +63,7 @@ def languages(request, language=None):
                 or q_lower in writing_systems
             )
 
-        filtered = [l for l in data if matches(l)]
+        filtered = [lang for lang in data if matches(lang)]
     else:
         filtered = data
 
