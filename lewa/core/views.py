@@ -67,7 +67,11 @@ def languages(request, language=None):
     else:
         filtered = data
 
-    return render(request, "core/languages.html", {"languages": filtered, "q": q, "total": len(filtered)})
+    return render(
+        request,
+        "core/languages.html",
+        {"languages": filtered, "q": q, "total": len(filtered)},
+    )
 
 
 def writing_systems(request, writing_system=None):
